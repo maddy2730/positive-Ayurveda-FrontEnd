@@ -53,9 +53,7 @@ export default function Cart({ cart, removeFromCart, addToCart, removeFromCartsu
         <div className="col-lg-8 d-flex justify-content-start">
           <Link to="/shop" className="pa-btn" style={{ backgroundColor: '#306D51', color: '#fff', padding: '10px 20px', textDecoration: 'none' }}>Continue Shopping</Link>
         </div>
-        <div className="col-lg-4 d-flex justify-content-end">
-          <button className="pa-btn" style={{ backgroundColor: '#306D51', color: '#fff', padding: '10px 20px' }}>Update Cart</button>
-        </div>
+       
       </div>
       <div className="row" style={{ marginTop: '20px', borderTop: '1px solid #306D51', paddingTop: '20px' }}>
         <div className="col-lg-10 d-flex justify-content-end">

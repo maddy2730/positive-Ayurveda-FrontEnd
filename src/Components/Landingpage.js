@@ -90,8 +90,69 @@ export default function Landingpage() {
 
         </div>
       </div>
+      <div class="container-fluid" style={{backgroundColor: "#306d51"}}>
+    <div class=" text-center p-5">
+      <div class="row text-center d-flex justify-content-center align-middle">
+        <div class="col-lg-4 col-md-6 fivvesix p-5">
+          <div class="card bg-white  herbal ">
+            <img src={cardfirst}
+              class="card-img-top three1" alt="..." />
+            <div class="card-body bg-white  herbal ">
+              <p class="card-title mt-1 fs-3">
+                <b>Herbal Medicine</b>
+              </p>
+              <p style={{color: "#070707B2"}}>
+                Pure Ayurveda
+              </p>
 
-      <div className="container-fluid color d-flex">
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur and to adipiscing elit,
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 fivvesix p-5">
+          <div class="card bg-white  herbal ">
+            <img src={cardsecond}
+              class="card-img-top three1" alt="..." />
+            <div class="card-body bg-white  herbal ">
+              <p class="card-title mt-1 fs-3">
+                <b>Fresh Product</b>
+              </p>
+              <p style={{color:" #070707B2"}}>
+                Pure Ayurveda
+              </p>
+
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur and to adipiscing elit,
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6  fivvesix  p-5">
+          <div class="card bg-white  herbal ">
+            <img src={cardthird}
+              class="card-img-top three1" alt="..." />
+            <div class="card-body bg-white  herbal ">
+              <p class="card-title mt-1 fs-3">
+                <b>Herbal Medicine</b>
+              </p>
+
+              <p style={{color:" #070707B2"}}>
+                Pure Ayurveda
+              </p>
+
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur and to adipiscing elit,
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+      {/* <div className="container-fluid color d-flex">
         <div className="container">
           <div className='row myy'>
             <div className='col-lg-4 col-md-4 col-sm-6'>
@@ -158,7 +219,7 @@ export default function Landingpage() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
 
       <div className="container-fluid ili text-light py-5">
             <div className="container mt-5 pb-5">

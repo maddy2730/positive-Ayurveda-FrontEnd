@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import Footer from '../Container/footer/Footer';
 import './Shop.css';
+import './Blog.css';
 import { Link } from 'react-router-dom';
 import img1 from '../Container/Images/shopimg1.png';
 import img2 from '../Container/Images/shop1.png';
 import img3 from '../Container/Images/shop2.png';
 import img4 from '../Container/Images/shop3.png';
 import img5 from '../Container/Images/shop4.png';
-
+import { NotificationContainer, NotificationManager } from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 export default function Shop({ addToCart }) {
   const products = [
     { id: 1, name: 'Himabhi Kesh oil', img: img2, price: 110 },
@@ -17,8 +19,11 @@ export default function Shop({ addToCart }) {
   ];
   const [active, setActive] = useState(false);
   const handleClick = () => {
+    NotificationManager.success('Cart added successfully', 'Success');
     setActive(!active);
+
   };
+
   return (
     <div>
       <div className='card bg-dark text-white modify'>
@@ -41,9 +46,9 @@ export default function Shop({ addToCart }) {
       </div>
 
       <div className="container-fluid et">
-        <div className="m-5 p-5">
+        <div className="m-5">
           <div className="row">
-            <div className="col-lg-4 mt-3 text-success shadow p-3 mb-5 rounded brd">
+          <div className="col-lg-4 mt-2 text-success shadow p-3 mb-5 rounded brd">
               <form className="d-flex bg-white p-1 mt-3" style={{ border: '1px solid rgba(0,0,0,.125)', borderRadius: '20px', height: '50px' }}>
                 <div className="search ms-auto" style={{ color: 'whitesmoke' }}>
                   <input className="form-control me-2" type="search" placeholder="" aria-label="" style={{ color: '#0FA958', borderRadius: '20px', backgroundColor: '#1E520C', width: '163px' }} />
@@ -54,7 +59,7 @@ export default function Shop({ addToCart }) {
                 </div>
               </form>
 
-              <div className="col-lg-12 mt-5 text-start" style={{ color: '#1E520C' }}>
+              <div className="col-lg-12 mt-3 text-start" style={{ color: '#1E520C' }}>
                 <h2><b>Categories</b></h2>
                 {[
                   { title: 'Total Products', count: 4 },
@@ -71,7 +76,7 @@ export default function Shop({ addToCart }) {
                 ))}
               </div>
 
-              <div className="mt-5" style={{ color: '#1E520C' }}>
+              <div className="mt-3" style={{ color: '#1E520C' }}>
                 <h2><b>Top Products</b></h2>
                 {[img1, img1, img1, img1].map((product, index) => (
                   <div key={index} className="d-flex pt-2">
@@ -84,7 +89,7 @@ export default function Shop({ addToCart }) {
                 ))}
               </div>
 
-              <div className="col-lg-12 mt-5 mb-5 text-start" style={{ color: '#1E520C' }}>
+              <div className="col-lg-12 mt-2 text-start" style={{ color: '#1E520C' }}>
                 <h3><b>Tags</b></h3>
                 {[
                   ['Products', 'Herbal', 'Trending', 'Herbal'],
@@ -120,17 +125,16 @@ export default function Shop({ addToCart }) {
                           <p>{`$${product.price}`}</p>
                         </div>
                         <div className="d-flex justify-content-center" id="what">
-                          <button
-                            className="btn-lg text-success rounded-pill pww mb-2 pt-2 pb-2 pe-3 ps-3"
-                            type="button"
-                            
-                            style={{ backgroundColor: active ? "#0FA958" : "white"  , borderColor: '#306d51' }}
-                            id="when"
-                            onClick={() => { addToCart(product); handleClick(); }}
-                          >
-                            ADD TO CART
-                          </button>
-
+                        <button
+        className="btn-lg text-success rounded-pill pww mb-2 pt-2 pb-2 pe-3 ps-3"
+        type="button"
+        style={{ backgroundColor: active ? "white" : "white", borderColor: '#306d51' }}
+        id="when"
+        onClick={() => { addToCart(product); handleClick(); }}
+      >
+        ADD TO CART
+      </button>
+      <NotificationContainer />
                         </div>
                       </div>
                       <i className="fa-regular fa-heart position-absolute top-0 end-0 p-4 fs-3"></i>

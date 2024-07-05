@@ -203,3 +203,15 @@ background-color : #C9F9E2;}
     }
     
 }
+@media screen and (max-width: 520px)  {
+    .fivvesix{
+     padding: 1rem !important;
+    }
+  }
+
+  .herbal {
+    border-radius: 20px !important;
+    height: 450px !important;
+    color: #1E520C;
+  
+  }

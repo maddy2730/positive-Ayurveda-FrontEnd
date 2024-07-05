@@ -43,16 +43,16 @@ export default function Aboutus() {
               <img src={firstimage} className='w-100 ' />
             </div>
             <div className='col-lg-6 col-md-12 col-sm-12'>
-              <img src={secondimage} className='img ms' />
+              <img src={secondimage} className='img ms ps-3 pe-2' />
               <div className='leftclass'>
-                <h2 className='divhead2 mb-4  ms '><b>WE ARE HERE WITH 25 YEARS OF EXPERIENCE</b></h2>
+                <h2 className='divhead2 mb-4  ms ps-3 pe-2'><b>WE ARE HERE WITH 25 YEARS OF EXPERIENCE</b></h2>
 
               </div>
-              <p className='peditt   ms'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              <p className='peditt   ms ps-3 pe-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <p className='peditt  mt-1  ms'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              <p className='peditt  mt-1  ms ps-3 pe-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <p className='peditt  mt-1  ms'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              <p className='peditt  mt-1  ms ps-3 pe-2'>Lorem ipsum dolor sit amet, consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
               Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
             </div>
