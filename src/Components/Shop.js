@@ -19,7 +19,7 @@ export default function Shop({ addToCart }) {
   ];
   const [active, setActive] = useState(false);
   const handleClick = () => {
-    NotificationManager.success('Cart added successfully', 'Success');
+    NotificationManager.success('Cart added successfully', 'Success',1000);
     setActive(!active);
 
   };
@@ -48,6 +48,45 @@ export default function Shop({ addToCart }) {
       <div className="container-fluid et">
         <div className="m-5">
           <div className="row">
+          <div className="col-lg-8">
+              <div className="row">
+                {products.map((product) => (
+                  <div key={product.id} className="col-lg-6 col-md-6 mt-3">
+                    <div className="card pt-5" style={{ backgroundColor: 'transparent', borderRadius: '15px' }} id="cards">
+                      <img src={product.img} className="card-img-top three1" alt={product.name} />
+                      <div className="card-body bherbal" id="cards">
+                        <p className="card-title mt-1 text-center fs-2" style={{ color: '#306d51' }} id="cards">{product.name}</p>
+                        <p className="card-text text-center pt-2" style={{ color: '#306d51' }}>
+                          <i className="fa-solid fa-star"></i>
+                          <i className="fa-solid fa-star"></i>
+                          <i className="fa-solid fa-star"></i>
+                          <i className="fa-regular fa-star"></i>
+                          <i className="fa-regular fa-star"></i>
+                        </p>
+                        <div className="d-flex justify-content-center align-items-baseline fs-4">
+                          <del className="pe-2">$120</del>
+                          <p>{`$${product.price}`}</p>
+                        </div>
+                        <div className="d-flex justify-content-center" id="what">
+                        <button
+        className="btn-lg text-success rounded-pill pww mb-2 pt-2 pb-2 pe-3 ps-3"
+        type="button"
+        style={{ backgroundColor: active ? "white" : "white", borderColor: '#306d51' }}
+        id="when"
+        onClick={() => { addToCart(product); handleClick(); }}
+      >
+        ADD TO CART
+      </button>
+      <NotificationContainer />
+                        </div>
+                      </div>
+                      <i className="fa-regular fa-heart position-absolute top-0 end-0 p-4 fs-3"></i>
+                      <i className="fa-solid fa-heart text-danger position-absolute top-0 end-0 fs-3 p-4" id="were"></i>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           <div className="col-lg-4 mt-2 text-success shadow p-3 mb-5 rounded brd">
               <form className="d-flex bg-white p-1 mt-3" style={{ border: '1px solid rgba(0,0,0,.125)', borderRadius: '20px', height: '50px' }}>
                 <div className="search ms-auto" style={{ color: 'whitesmoke' }}>
@@ -105,45 +144,7 @@ export default function Shop({ addToCart }) {
               </div>
             </div>
 
-            <div className="col-lg-8">
-              <div className="row">
-                {products.map((product) => (
-                  <div key={product.id} className="col-lg-6 col-md-6 mt-3">
-                    <div className="card pt-5" style={{ backgroundColor: 'transparent', borderRadius: '15px' }} id="cards">
-                      <img src={product.img} className="card-img-top three1" alt={product.name} />
-                      <div className="card-body bherbal" id="cards">
-                        <p className="card-title mt-1 text-center fs-2" style={{ color: '#306d51' }} id="cards">{product.name}</p>
-                        <p className="card-text text-center pt-2" style={{ color: '#306d51' }}>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-solid fa-star"></i>
-                          <i className="fa-regular fa-star"></i>
-                          <i className="fa-regular fa-star"></i>
-                        </p>
-                        <div className="d-flex justify-content-center align-items-baseline fs-4">
-                          <del className="pe-2">$120</del>
-                          <p>{`$${product.price}`}</p>
-                        </div>
-                        <div className="d-flex justify-content-center" id="what">
-                        <button
-        className="btn-lg text-success rounded-pill pww mb-2 pt-2 pb-2 pe-3 ps-3"
-        type="button"
-        style={{ backgroundColor: active ? "white" : "white", borderColor: '#306d51' }}
-        id="when"
-        onClick={() => { addToCart(product); handleClick(); }}
-      >
-        ADD TO CART
-      </button>
-      <NotificationContainer />
-                        </div>
-                      </div>
-                      <i className="fa-regular fa-heart position-absolute top-0 end-0 p-4 fs-3"></i>
-                      <i className="fa-solid fa-heart text-danger position-absolute top-0 end-0 fs-3 p-4" id="were"></i>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>

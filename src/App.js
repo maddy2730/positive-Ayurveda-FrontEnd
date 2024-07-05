@@ -5,7 +5,7 @@ import Landingpage from './Components/Landingpage';
 import Aboutus from './Components/Aboutus';
 import Shop from './Components/Shop';
 import Services from './Components/Services';
-import Pages from './Components/Pages';
+// import Pages from './Components/Pages';
 import Blog from './Components/Blog';
 import LoginSignup from './Components/LoginSignup';
 import Contact from './Components/Contact';
@@ -55,7 +55,7 @@ export default function App() {
           <Route path='/aboutus' element={<Aboutus />} />
           <Route path='/shop' element={<Shop addToCart={addToCart} />} />
           <Route path='/services' element={<Services />} />
-          <Route path='/pages' element={<Pages />} />
+          {/* <Route path='/pages' element={<Pages />} /> */}
           <Route path='/blog' element={<Blog />} />
           <Route path='/contact' element={<Contact />} />
           <Route path='/cart' element={<Cart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} removeFromCartsubtract={removeFromCartsubtract} />} />

@@ -1,24 +1,40 @@
-
 .back-groundd {
     background-color: #C9F9E2;
-}
-
-.gapes {
-    gap:25px;
-}
-.nav-item a{
-    color:#1E520C !important;
-}
-
- .logoImg{
+  }
+  
+  .gapes {
+    gap: 25px;
+  }
+  
+  .nav-item a {
+    color: #1E520C !important;
+  }
+  
+  .logoImg {
     height: 46px;
     filter: brightness(-2.5);
- }
- .mauto{
-margin: auto;
- }
- @media(max-width:991px){
-    .mauto{
-        margin:0px;
-         }
- }
+  }
+  
+  .mauto {
+    margin: auto;
+  }
+  
+  @media (max-width: 991px) {
+    .mauto {
+      margin: 0px;
+      display: none;
+    }
+  }
+    .mauto1{
+      @media screen and (min-width: 991px) and (max-width:2000px) {
+display: none;
+      }
+
+    }
+.navbaricon{
+    gap: 20px;
+    align-items: center;
+}
+  .offcanvas {
+    width: 210px !important;
+  }

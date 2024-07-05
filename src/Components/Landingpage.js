@@ -152,75 +152,6 @@ export default function Landingpage() {
     </div>
   </div>
 
-      {/* <div className="container-fluid color d-flex">
-        <div className="container">
-          <div className='row myy'>
-            <div className='col-lg-4 col-md-4 col-sm-6'>
-              <div className='cardone'>
-                <div className='cardimg m-auto'>
-                  <img src={cardfirst} />
-                </div>
-                <div className='cls'>
-                <div className='cardhead'>
-                  <p><b>Herbal Medicine</b></p>
-                </div>
-                <div className='cardpara'>
-                  <p>Pure Ayurveda</p>
-                </div>
-                <div className='cardpara2'>
-                  <p>Lorem ipsum dolor sit amet, consectetur and to adipiscing elit,</p>
-                </div>
-                </div>
-               
-              </div>
-
-
-            </div>
-            <div className='col-lg-4 col-md-4 col-sm-6 colmeees'>
-              <div className='cardone'>
-                <div className='cardimg m-auto'>
-                  <img src={cardsecond} />
-                </div>
-              <div className='cls'>
-              <div className='cardhead'>
-                  <p><b>Fresh Product</b></p>
-                </div>
-                <div className='cardpara'>
-                  <p>Pure Ayurveda</p>
-                </div>
-                <div className='cardpara2'>
-                  <p>Lorem ipsum dolor sit amet, consectetur and to adipiscing elit,</p>
-                </div>
-              </div>
-              </div>
-
-
-            </div>
-            <div className='col-lg-4 col-md-4 col-sm-6 colmes'>
-              <div className='cardone'>
-
-                <div className='cardimg m-auto'>
-                  <img src={cardthird} />
-                </div>
-                <div className='cls'>
-                <div className='cardhead'>
-                  <p><b>Herbal Medicine</b></p>
-                </div>
-                <div className='cardpara'>
-                  <p>Pure Ayurveda</p>
-                </div>
-                <div className='cardpara2'>
-                  <p>Lorem ipsum dolor sit amet, consectetur and to adipiscing elit,</p>
-                </div>
-                </div>
-                
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div> */}
-
       <div className="container-fluid ili text-light py-5">
             <div className="container mt-5 pb-5">
                 <div className="text-center pt-5">
@@ -296,7 +227,7 @@ export default function Landingpage() {
             <div className="card-body mt-5">
               <h2 className="card-title">{slide.title}</h2>
               <i className="fa-solid fa-quote-left fs-1 mt-3"></i>
-              <h5 className="card-text p-2">{slide.text}</h5>
+              <h5 className="card-text p-2 fonts">{slide.text}</h5>
               <i className="fa-solid fa-quote-right d-flex fs-1 justify-content-end"></i>
             </div>
           </div>

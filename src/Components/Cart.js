@@ -42,11 +42,8 @@ export default function Cart({ cart, removeFromCart, addToCart, removeFromCartsu
         </div>
       ))}
       <div className="row" style={{ marginTop: '20px' }}>
-        <div className="col-lg-10 d-flex justify-content-end">
-          <h5><b>Sub Total:</b></h5>
-        </div>
-        <div className="col-lg-2 d-flex align-items-center">
-          <h5>${calculateTotal()}</h5>
+        <div className="col-lg-12 d-flex justify-content-end">
+          <h5><b>Sub Total:</b></h5> <h5>${calculateTotal()}</h5>
         </div>
       </div>
       <div className="row" style={{ marginTop: '20px' }}>
@@ -56,27 +53,19 @@ export default function Cart({ cart, removeFromCart, addToCart, removeFromCartsu
        
       </div>
       <div className="row" style={{ marginTop: '20px', borderTop: '1px solid #306D51', paddingTop: '20px' }}>
-        <div className="col-lg-10 d-flex justify-content-end">
-          <h5><b>Shipping charges:</b></h5>
-        </div>
-        <div className="col-lg-2 d-flex align-items-center">
-          <h5>$20</h5>
+        <div className="col-lg-12 d-flex justify-content-end">
+          <h5><b>Shipping charges:</b></h5>  <h5>$20</h5>
         </div>
       </div>
       <div className="row" style={{ marginTop: '20px' }}>
-        <div className="col-lg-10 d-flex justify-content-end">
-          <h5><b>GST:</b></h5>
-        </div>
-        <div className="col-lg-2 d-flex align-items-center">
-          <h5>18%</h5>
+        <div className="col-lg-12 d-flex justify-content-end">
+          <h5><b>GST:</b></h5> <h5>18%</h5>
         </div>
       </div>
       <div className="row" style={{ marginTop: '20px' }}>
-        <div className="col-lg-10 d-flex justify-content-end">
-          <h5><b>Grand total:</b></h5></div>
-        <div className="col-lg-2 d-flex align-items-center">
-          <h5>${calculateTotal() + 20}</h5>
-        </div>
+        <div className="col-lg-12 d-flex justify-content-end">
+          <h5><b>Grand total:</b></h5><h5>${calculateTotal() + 20}</h5>
+          </div>
       </div>
       <div className="row" style={{ marginTop: '20px' }}>
         <div className="col-lg-12 d-flex justify-content-center">
