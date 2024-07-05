@@ -1,0 +1,20 @@
+.modify {
+    background-color: transparent !important;
+    background-image: url('../Container/Images/Rectangletop.png');
+    width: 100%;
+   background-position: center;
+    height: 50vh;
+    background-size: cover;
+    border: 0 px none !important;
+    border-radius: 0px;
+}
+.message{
+  font-weight: 700;
+}
+.edit {
+    gap: 20px;
+}
+.et {
+    background-color: #C9F9E2;
+
+}

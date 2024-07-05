@@ -1,0 +1,32 @@
+.modify {
+    background-color: transparent !important;
+    background-image: url('../Container/Images/Rectangletop.png');
+    width: 100%;
+   background-position: center;
+    height: 50vh;
+    background-size: cover;
+    border: 0 px none !important;
+    border-radius: 0px;
+}
+.message{
+  font-weight: 700;
+}
+.edit {
+    gap: 20px;
+}
+.headshop {
+    text-align: center;
+}
+.et {
+    background-color: #C9F9E2;
+
+}
+.three1 {
+    height: 250px;
+}
+.pww:active{
+    box-shadow: 8px 9px 6px 1px #00000096;
+ transition: all 150ms ease-out;
+ background-color: green;
+
+}

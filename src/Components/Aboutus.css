@@ -1,0 +1,110 @@
+.modify {
+    background-color: transparent !important;
+    background-image: url('../Container/Images/Rectangletop.png');
+    width: 100%;
+   background-position: center;
+    height: 50vh;
+    background-size: cover;
+    border: 0 px none !important;
+    border-radius: 0px;
+}
+.message{
+  font-weight: 700;
+}
+.edit {
+    gap: 20px;
+}
+.peditt {
+    font-size: small;
+    color: #1E520C;
+
+}
+.divhead2 {
+    font-size: medium;
+    color : #1E520C;
+
+}
+.rungparent {
+    background: #306D51;
+}
+.imgs{
+    background: #306D51;
+    margin: 0px !important;
+    padding: 0px !important;
+    border-radius: 10px;
+}
+.imgs img {
+    transition: transform 0.3s ease;
+}
+
+.imgs img:hover {
+    transform: translate(-10px, -10px);
+}
+.rtx{
+    position: relative;
+    top: 42px;
+}
+.onerows{
+    position: relative;
+    top: 80px;
+    gap: 12px;
+    justify-content: center;
+
+}
+.err {
+    background-color: #C9F9E2;
+}
+.ms{
+    margin-left: 3rem;
+}
+@media (min-width: 992px) {
+    .col-lgs {
+        flex: 0 0 auto;
+        width: 24% !important;
+    }
+}
+.contr{
+    padding: 100px 0px 100px 0px;
+}
+@media(max-width:992px){
+   .ms{
+    margin-left: 0px;
+   }
+}
+.rung {
+    background: #C9F9E2;
+    box-shadow: #379C66 0px 0px 5px 0px;
+    border-radius: 9px;
+    height: max-content;
+}
+.rung p{
+margin-bottom: 0px;
+font-size: smaller;
+}
+.rung h2{
+    margin-bottom: 0px;
+    font-size: revert;
+    font-weight: 700;
+    margin-bottom: 8px;
+    }
+    .rung img{
+        margin-bottom: 8px;
+        width: 35px;
+    }
+.runghead {
+    color:#C9F9E2 ;
+}
+.firstrow img{
+width: 100px;
+}
+.fontsize{
+    font-size: medium;
+}
+.firstrow {
+    padding-top: 150px;
+}
+.rww {
+     background: #C9F9E2;
+
+}
+

@@ -1,0 +1,234 @@
+.card.modify {
+    background-color: #343a40;
+    color: white;
+}
+
+.modify .container {
+    text-align: center;
+    height: 100px;
+}
+.et {
+    background-color: #C9F9E2;
+
+}
+
+.modify h3 {
+    font-size: 24px;
+}
+
+.edit .nav-link {
+    color: white;
+    margin: 0 10px;
+}
+
+.container-fluid {
+    padding: 50px 0;
+}
+
+.leftdiv .maindiv1 {
+    margin-bottom: 30px;
+}
+
+.ourBest {
+    font-size: 28px;
+    color: #1E520C;
+    ;
+}
+
+.h4-maindiv p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.p-maindiv p {
+    color: #666;
+}
+
+.imgdiv1, .imgdiv2 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.imgchild1, .imgchild2, .imgchild3, .imgchild4 {
+    width: 48%;
+}
+
+.imgchild1 h5, .imgchild2 h5, .imgchild3 h5, .imgchild4 h5 {
+    margin-left: 10px;
+    font-size: 18px;
+}
+
+.editf img {
+    width: 40px;
+    height: 40px;
+}
+
+.sit {
+    color: #666;
+}
+
+@media (max-width: 992px) {
+    .imgdiv1, .imgdiv2 {
+        flex-direction: column;
+    }
+    .imgchild1, .imgchild2, .imgchild3, .imgchild4 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .editf {
+        align-items: center;
+    }
+}
+
+.twoline {
+    display: flex;
+    justify-content: end;
+  }
+  .twoline1 {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+  }
+  .twoline12 {
+    display: flex;
+    justify-content: start;
+    align-items: end;
+  }
+  .twoline11 {
+    display: flex;
+    justify-content: start;
+  }
+  li {
+    list-style: none;
+  }
+  .allaresame1234 {
+    align-items: center;
+  }
+  .allaresame12345 {
+    align-items: end;
+  }
+  .home-section {
+    position: relative;
+    top: 26%;
+  }
+  #green1 {
+    border-radius: 5px !important;
+    padding: 15px 32px !important;
+    gap: 8px !important;
+    background-color: #2DA004 !important;
+    border: 2px solid transparent;
+    margin-top: 100px;
+  }
+  .topss {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition for transform and box-shadow */
+  }
+  @media screen and (max-width: 991px) {
+    .navcss {
+      display: block;
+    }
+  }
+  .topss:hover {
+    box-shadow: 10px 10px black; /* Box shadow properties */
+    transform: scale(1.05); /* Scale up effect */
+  }
+  .move:hover{
+    transform: scale(1.02);
+  }
+  @media screen and (max-width: 475px)  {
+    .topes{
+      top: 31% !important;
+    }
+  }
+  @media screen and (max-width: 991px) {
+    .line {
+      display: none;
+    }
+    .twoline1{
+      justify-content: center;
+    }
+    .twoline{
+      justify-content: center;
+    }
+    .twoline11{
+      justify-content: center;
+    }
+    .twoline12{
+      justify-content: center;
+    }
+    .sametowu{
+      display: flex;
+      justify-content: center;
+    }
+  }
+  @media screen and (max-width:670px) {
+    .margines{
+      margin-left: 0rem !important;
+    }
+  }
+  @media screen and (max-width:hover) {
+    .tops{
+      top: 32% !important;
+    }
+  }
+  @media screen and (max-width:991px) {
+    .logocenterauto{
+      width:fit-content;
+    }
+  }
+  body {
+    background: #C9F9E2;
+  }
+  @media (max-width:550px) {
+    .rowws {
+      margin: 2rem !important;
+      padding: 0px !important;
+    }
+  }
+  @media  (max-width:991px) {
+    .blocks{
+        display: block;
+      }
+  }
+  .iy {
+    background-color: #306D51;
+
+  }
+
+  .ru {
+    color: #C9F9E2;
+
+  }
+  .gi {
+    color: #1E520C;
+    font-size: small;
+   
+
+  }
+  .topss {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition for transform and box-shadow */
+  }
+  
+  
+  .topss:hover {
+    box-shadow: 10px 10px black; /* Box shadow properties */
+    transform: scale(1.05); /* Scale up effect */
+  }
+
+  .mu {
+    border:2px dotted white !important;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+  

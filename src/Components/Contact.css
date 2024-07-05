@@ -1,0 +1,88 @@
+.modify {
+    background-color: transparent !important;
+    background-image: url('../Container/Images/Rectangletop.png');
+    width: 100%;
+   background-position: center;
+    height: 50vh;
+    background-size: cover;
+    border: 0 px none !important;
+    border-radius: 0px;
+}
+.message{
+  font-weight: 700;
+}
+.edit {
+    gap: 20px;
+}
+hr{
+  border: 0.5px dotted;
+}
+input::placeholder {
+font-size: small;
+}
+ .btn-dark {
+    border-color: #2f4f4f;
+  }
+  .header{
+    padding: 88px;
+  }
+  .headers{
+    background-color: rgba(201, 249, 226,1);
+    padding: 40px;
+    color: rgba(48,109,81,1);
+  }
+  .headers input{
+    background-color: rgba(201, 249, 226,1);
+  border: 1px solid #1e3e3e;
+  border-radius: 0px;
+  }
+  .headers textarea{
+    background-color: rgba(201, 249, 226,1);
+  border: 1px solid #1e3e3e;
+  border-radius: 0px;
+  }
+  .btn{
+    width: 35%;
+    border-radius: 2px;
+    margin-top: 10px;
+    background-color: #2f4f4f;
+    font-size: small;
+  }
+  .form-group label{
+font-size: small;
+padding-bottom: 7px;
+  }
+  .colo {
+    width: 100%;
+  }
+  .ctn{
+    background-color:#306D51;
+    padding: 30px 80px 30px 20px;
+  }
+  .getin{
+  font-weight:600!important;
+        font-size:19px !important;
+        line-height:22.08px !important;
+  }
+  .weLove{
+    font-weight:700!important;
+        font-size:25px !important;
+        line-height:25.08px !important;
+  }
+  .btn{
+     background-color:#306D51;
+  }
+  .textp{
+    font-size: small;
+  }
+  @media(max-width:768px){
+    .ctn{
+      padding: 30px 20px 30px 20px;
+    }
+    .header {
+      padding: 23px;
+  }
+  }
+  .google-map{
+    overflow: auto;
+  }

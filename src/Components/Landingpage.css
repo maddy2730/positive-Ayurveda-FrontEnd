@@ -1,0 +1,205 @@
+ 
+.back-ground {
+    height: 100vh;
+    background: 
+    linear-gradient(rgba(55, 156, 102, 0.4), rgba(55, 156, 102, 0.4)), 
+    url('./../Container/Images/background1.png');   background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.h2edit {
+font-size: clamp(22px, 4vw, 44px);
+font-weight: 700;
+
+}
+.pedit {
+font-size: clamp(10px, 2vw, 16px);
+font-weight: 400;
+margin-bottom: 0px !important;
+
+}
+.p2 {
+    margin-top: 25px;
+}
+
+.home-section{
+    position: relative;
+    top: 23%;
+}
+
+#green1 {
+    border-radius: 5px !important;
+    padding: 15px 32px !important;
+    gap: 8px !important;
+
+    background-color: #2DA004 !important;
+    border: 2px solid transparent; 
+    margin-top: 80px !important;
+    width: auto;
+}
+.color {
+    background-color: #306D51;
+padding: 64px 0px 64px 0px;
+justify-content: center;
+}
+.cardone {
+    background-color: #ffffff;
+    text-align: center;
+    /* width:310px !important;
+    height: 402px !important; */
+    border-radius: 20px;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+
+    
+    
+}
+.Ayurveda_med{
+    background-color : white;
+}
+.main-fluiddiv{
+background-color : #C9F9E2;}
+.cardimg{
+    max-width: -webkit-fill-available;
+    height: 250px !important;
+    width: 300px !important;
+    text-align: center !important;
+}
+.cardhead {
+    color: #1E520C;
+    margin-top: 20px !important;
+    
+}
+.cardpara {
+    font-size: small;
+}
+.cardpara2 {
+    color: #1E520C;
+    font-size: small;
+
+}
+.head {
+    font-size: small;
+    margin-top: 10px;
+    color: #306D51;
+}
+.head1 {
+    font-size: medium;
+    color: #1E520C;
+    margin-bottom: 0rem;
+    
+}
+@media(max-width:991px){
+.rw{
+    justify-content: center;
+}
+.card-3{
+    margin-top: 30px;
+}
+
+}
+@media(max-width:767px){
+    .card-2{
+        margin-top: 30px;
+    }}
+.date {
+    font-size: small;
+    color: #306D51;
+}
+@media(min-width: 992px) {
+    .col-lg{
+        flex: 0 0 auto;
+    }
+}
+
+.col-lg img{
+    width: -webkit-fill-available;
+}
+.ili {
+    background-color: #C9F9E2;
+
+}
+.colr {
+    color: #1E520C !important;
+    ;
+}
+.hcol {
+    color: #306D51;
+
+}
+.h1col {
+    color: #1E520C;
+
+}
+.yu {
+    
+    border:2px dotted  #306D51 !important;
+}
+
+.slide:nth-child(2) .card {
+    background-color: white !important;
+    color: #1E520C;
+    ;
+}
+.slide:nth-child(4) .card {
+    background-color: white !important;
+    color: #1E520C;
+    ;
+}
+.cardimg img{
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+
+}
+.cls{
+    padding: 20px 20px;
+}
+.slide:nth-child(1) .card {
+    background-color: #306D51;
+    color: white;
+}
+.slide:nth-child(3) .card {
+    background-color: #306D51;
+    color: white;
+}
+.controls {
+    cursor: pointer;
+}
+
+.dot {
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #1E520C;
+}
+.myy {
+    justify-content: center;
+}
+@media(max-width: 767px){
+    .colmes{
+        margin-top:50px !important ;
+    }
+    
+}
+@media(max-width: 576px){
+    .colmeees{
+        margin-top:50px !important ;
+    }
+    
+}
+
+@media(max-width: 944px){
+    .towone{
+        
+         padding: 0px !important;
+    }
+    
+}
+@media(max-width: 944px){
+    .onetwo{
+         height: -webkit-fill-available !important;
+    }
+    
+}

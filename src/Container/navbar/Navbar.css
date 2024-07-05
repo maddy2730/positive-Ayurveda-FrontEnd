@@ -1,0 +1,24 @@
+
+.back-groundd {
+    background-color: #C9F9E2;
+}
+
+.gapes {
+    gap:25px;
+}
+.nav-item a{
+    color:#1E520C !important;
+}
+
+ .logoImg{
+    height: 46px;
+    filter: brightness(-2.5);
+ }
+ .mauto{
+margin: auto;
+ }
+ @media(max-width:991px){
+    .mauto{
+        margin:0px;
+         }
+ }

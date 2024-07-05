@@ -1,0 +1,39 @@
+.footer {
+    background-color: #306D51; /* Dark green color */
+    padding: 20px 0;
+    color: #C9F9E2 !important;
+    ;
+  }
+  .footer a {
+    color: #C9F9E2 !important;
+   text-decoration: none;
+  }
+  .footer h5 {
+    color: #C9F9E2 !important;
+    
+  }
+  .footer img {
+    max-width: 150px;
+    margin-bottom: 10px;
+  }
+  .footer address {
+    font-style: normal;
+    line-height: 1.6;
+  }
+  .footer .text-center {
+    border-top: 1px solid #F1E3B2; /* Same light yellowish color */
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+  .list-unstyled{
+    line-height: 32px;
+  }
+
+
+
+
+
+
+
+
+
