@@ -221,10 +221,10 @@ export default function Landingpage() {
       <div className="card">
         <div className="row g-0 bg-colors">
           <div className="col-md-4 p-4">
-            <img src={slide.img} className="img-fluid rounded-start onetwo" alt="..." />
+            <img src={slide.img} className="img-fluid rounded-start onetwo " alt="..." />
           </div>
           <div className="col-md-8 p-5 text-start towone">
-            <div className="card-body mt-5">
+            <div className="card-body mt-3">
               <h2 className="card-title">{slide.title}</h2>
               <i className="fa-solid fa-quote-left fs-1 mt-3"></i>
               <h5 className="card-text p-2 fonts">{slide.text}</h5>

@@ -46,7 +46,7 @@ export default function Footer() {
         </div>
         <div className="text-center mt-4 ">
           <p className="mb-0">© Copyright Nova. All Rights Reserved</p>
-          <p className="mb-0">Designed by <a href="https://example.com" className="text-light">VBS TECH</a></p>
+          <p className="mb-0">Designed by <a href="https://example.com" className="text-light">vbstechsolutions.com</a></p>
         </div>
       </div>
     </footer>

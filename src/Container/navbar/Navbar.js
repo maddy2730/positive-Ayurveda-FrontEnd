@@ -91,7 +91,7 @@ export default function Navbar({ cart }) {
               <Link className="nav-link active" aria-current="page" to="/blog"><b>Blog</b></Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/pages"><b>Pages</b></Link>
+              <Link className="nav-link active" aria-current="page" to="#"><b>Pages</b></Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link active" aria-current="page" to="/contact"><b>Contact</b></Link>
