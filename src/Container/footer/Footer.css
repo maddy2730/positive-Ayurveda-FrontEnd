@@ -31,6 +31,34 @@
 
 
 
+/* Footer.css */
+.footer {
+    bottom: 0;
+  width: 100%;
+  z-index: 0;
+  padding: 20px 0;
+}
+
+.footer p, .footer h5, .footer ul, .footer a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+} */
+
+
+
+/* Adjust the container to make space for the footer */
 
 
 

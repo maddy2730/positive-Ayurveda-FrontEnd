@@ -113,14 +113,18 @@
     position: relative;
     top: 26%;
   }
-  #green1 {
+  /* #green1 {
     border-radius: 5px !important;
     padding: 15px 32px !important;
     gap: 8px !important;
     background-color: #2DA004 !important;
     border: 2px solid transparent;
-    margin-top: 100px;
-  }
+    display: inline-flex;
+    align-items: center;
+    height: 67px;
+    width: 181px;
+   
+  } */
   .topss {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition for transform and box-shadow */
   }
@@ -177,9 +181,9 @@
       width:fit-content;
     }
   }
-  body {
+  /* body {
     background: #C9F9E2;
-  }
+  } */
   @media (max-width:550px) {
     .rowws {
       margin: 2rem !important;

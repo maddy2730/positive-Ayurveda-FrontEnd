@@ -2,41 +2,101 @@
 .back-ground {
     height: 100vh;
     background: 
-    linear-gradient(rgba(55, 156, 102, 0.4), rgba(55, 156, 102, 0.4)), 
-    url('./../Container/Images/background1.png');   background-size: cover;
+        linear-gradient(
+            rgba(0, 0, 0, 0.5), /* Dark shadow at the top */
+            rgba(0, 0, 0, 0.3)  /* Lighter shadow towards the bottom */
+        ), 
+        url('./../Container/Images/Rectangle 70 (1).jpg'); /* Ensure the path is correct */
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-attachment: fixed;
 }
 
+.main_landing{
+    /* position: relative;
+    z-index: 9; */
+}
 .h2edit {
-font-size: clamp(22px, 4vw, 44px);
+font-size: clamp(22px, 4vw, 64px);
 font-weight: 700;
 
 }
+.light_color{
+    background-color: #ffffff;
+}
+.hedit{
+    font-size: clamp(22px, 4vw, 44px);
+    font-weight: 700;
+    line-height: 35px;
+    color: #1E520C;
+    white-space: nowrap;
+
+}
 .pedit {
-font-size: clamp(10px, 2vw, 16px);
-font-weight: 400;
+font-size: clamp(10px, 4vw, 17px);
+font-weight: 600;
+line-height: 20px;
 margin-bottom: 0px !important;
 
 }
+@media(max-width:768px){
+    .pedit {
+        font-size: clamp(10px, 4vw, 10px);
+        font-weight: 500;
+        line-height: 18px;
+        margin-bottom: 0px !important;
+        
+        }
+        .h2edit{
+            font-size: clamp(30px, 6vw, 64px);
+            font-weight: 700;
+            line-height: 35px;
+           
+            white-space: nowrap;
+        
+        }}
+
+.pedits {
+    font-size: clamp(10px, 2vw, 12.5px);
+    font-weight: 400;
+    line-height: 7px;
+    white-space: nowrap;
+    color: #1E520C;
+   
+    
+    }
+    @media(max-width:991px){
+        .rever{
+            display: flex;
+            flex-direction: column-reverse;
+    
+        }}
+   
 .p2 {
     margin-top: 25px;
 }
 
 .home-section{
     position: relative;
-    top: 23%;
+    top: 10%;
 }
 
 #green1 {
     border-radius: 5px !important;
-    padding: 15px 32px !important;
+    /* padding: 15px 32px !important; */
     gap: 8px !important;
-
-    background-color: #2DA004 !important;
+    height: 64px;
+    font-size: 16px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    background-color: #306D51 !important;
     border: 2px solid transparent; 
     margin-top: 80px !important;
-    width: auto;
+    width: 181px;
+   justify-content: center;
+    text-align: center;
 }
 .color {
     background-color: #306D51;
@@ -55,11 +115,16 @@ justify-content: center;
     
     
 }
+.transfer{
+    height: -webkit-fill-available;
+}
 .Ayurveda_med{
     background-color : white;
+    border-bottom-left-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
 }
 .main-fluiddiv{
-background-color : #C9F9E2;}
+background-color : #306D51;}
 .cardimg{
     max-width: -webkit-fill-available;
     height: 250px !important;
@@ -156,12 +221,12 @@ background-color : #C9F9E2;}
     padding: 20px 20px;
 }
 .slide:nth-child(1) .card {
-    background-color: #306D51;
-    color: white;
+    /* background-color: #306D51; */
+    color: #1E520C;
 }
 .slide:nth-child(3) .card {
-    background-color: #306D51;
-    color: white;
+    background-color: #ffffff;
+    color: #1E520C;
 }
 .controls {
     cursor: pointer;
@@ -218,4 +283,6 @@ background-color : #C9F9E2;}
   }
   .fonts {
     font-size: small;
+    color: #1E520C;
+    background-color: #ffffff;
   }

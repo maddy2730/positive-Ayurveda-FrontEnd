@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <div>
        <footer className="footer mt-auto py-3 text-light">
-      <div className="container mt-4">
+      <div className="container mt-4" >
         <div className="row">
           <div className="col-md-4">
             <img src={imgfooter} alt="Logo" className="mb-2" />

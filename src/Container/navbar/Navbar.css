@@ -1,6 +1,9 @@
 .back-groundd {
-    background-color: #C9F9E2;
-  }
+  width: 100vw;
+  position: fixed;
+  background-color: #ffffff;
+  z-index: 1;
+  } 
   
   .gapes {
     gap: 25px;
@@ -11,18 +14,34 @@
   }
   
   .logoImg {
-    height: 46px;
-    filter: brightness(-2.5);
+    height: auto;
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.2));
+    margin-right: 60px;
   }
   
-  .mauto {
+  /* .mauto {
     margin: auto;
+  } */
+
+  @media (max-width : 459px) {
+    .logoImg{
+      padding-left: 0px !important;
+      margin-right: 0px !important;
+    }
+    .navbaricon{
+      gap: 3px !important;
+    }
+    
   }
   
   @media (max-width: 991px) {
     .mauto {
       margin: 0px;
       display: none;
+    }
+    .div1{
+      max-width: none !important;
+   
     }
   }
     .mauto1{
@@ -31,10 +50,17 @@ display: none;
       }
 
     }
+    .div1{
+      /* max-width: fit-content; */
+      /* padding-right: 90px; */
+    }
 .navbaricon{
     gap: 20px;
     align-items: center;
 }
   .offcanvas {
     width: 210px !important;
+  }
+  .ipo{
+    width: 30px !important;
   }
