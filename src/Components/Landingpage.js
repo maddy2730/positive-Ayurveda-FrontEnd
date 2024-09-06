@@ -64,7 +64,7 @@ export default function Landingpage() {
   };
   return (
     <div className="mainallaresame">
-      <div className="main_landing">
+      <div className="newhim">
         <div class="container-fluid text-white back-ground">
           <div class="container home-section">
             <div class="row">
@@ -110,7 +110,7 @@ export default function Landingpage() {
             </div>
           </div>
         </div>
-        <div className="container-fluid">
+        <div className="container-fluid bg-white">
           <div className="container">
             <div className="row rever">
               <div className="col-lg-6 ps-3  pe-3">
@@ -142,7 +142,7 @@ export default function Landingpage() {
                     </p>
                     <p
                       style={{ fontSize: "12px", whiteSpace: "nowrap" }}
-                      className="ms-4"
+                      className=""
                     >
                       Co-Founder
                     </p>
@@ -161,7 +161,7 @@ export default function Landingpage() {
             </div>
           </div>
         </div>
-        <div className="container-fluid main-fluiddiv light_color mt-5">
+        <div className="container-fluid main-fluiddiv light_color ">
           <div className="container pb-5">
             <div className="text-center p-5">
               <h2 className="text-white">
@@ -411,7 +411,7 @@ export default function Landingpage() {
           </div>
         </div>
       </div> */}
-        <div className="container-fluid light_color">
+        <div className="container-fluid light_color colors">
           <div className="container p-3 text-center pb-2">
             <p className="fs-2" style={{ color: "#1E520C" }}>
               <b>Customer Review</b>
@@ -474,8 +474,9 @@ export default function Landingpage() {
           </div>
         </div>
 
-        <Footer />
+
       </div>
+      <Footer />
     </div>
   );
 }

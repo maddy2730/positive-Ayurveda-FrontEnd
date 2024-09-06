@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <div>
        <footer className="footer mt-auto py-3 text-light">
-      <div className="container mt-4">
+      <div className="container mt-4 strakes">
         <div className="row">
           <div className="col-md-4">
             <img src={imgfooter} alt="Logo" className="mb-2" />
@@ -45,11 +45,13 @@ export default function Footer() {
           </div>
         </div>
         <div className="text-center mt-4 ">
+          
           <p className="mb-0">© Copyright Nova. All Rights Reserved</p>
           <p className="mb-0">Designed by <a href="https://example.com" className="text-light">vbstechsolutions.com</a></p>
         </div>
       </div>
     </footer>
+    
     </div>
   )
 }
