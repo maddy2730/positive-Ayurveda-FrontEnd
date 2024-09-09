@@ -2,7 +2,7 @@
   width: 100vw;
   position: fixed;
   background-color: #ffffff;
-  z-index: 1;
+  z-index: 100;
   } 
   
   .gapes {
@@ -33,6 +33,21 @@
     }
     
   }
+  /* .newhim {
+ 
+
+    z-index: 10;
+    margin-bottom: 100px;
+    position: relative;
+  }
+  
+  footer {
+  
+  
+    position: fixed;
+    bottom: 0px;
+    z-index: 0;
+  } */
   
   @media (max-width: 991px) {
     .mauto {

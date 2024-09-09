@@ -23,6 +23,12 @@
     position: relative; */
   
 }
+/* .colors{
+    position: relative
+    ;
+    z-index: 1000;
+} */
+
 
 
 .main_landing{
@@ -36,6 +42,8 @@ font-weight: 700;
 }
 .light_color{
     background-color: #ffffff;
+    /* position: relative;
+    z-index: 10; */
 }
 .tranform-your-health-section{
     background-color: #ffffff;
