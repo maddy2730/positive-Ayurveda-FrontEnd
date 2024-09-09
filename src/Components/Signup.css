@@ -1,0 +1,59 @@
+
+
+.backcolor {
+    background-color:#C9F9E2!important;
+  }
+
+  
+  .backpicgreen {
+    background-image: url('./../Container/Images/BG.png');
+  }
+  
+  .stars {
+    color: yellow;
+  }
+  
+  
+  
+  @media (min-width: 1200px) {
+    .fontparaone {
+      width: 71%;
+    }
+    
+    .fontpara {
+      width: 71%;
+      margin-top: 9% !important; 
+    }
+    
+    .form-label {
+      color: #306d51;
+    }
+  
+    .form-control {
+      background-color: transparent;
+      border: 1px solid #306d51;
+    }
+  
+    .form-check-input {
+      background-color: transparent;
+      border: 1px solid #306d51;
+    }
+  
+    .form-check-label {
+      color: #306d51;
+    }
+  
+    .btn {
+      background-color: #306d51;
+      color: white;
+      width: 30%;
+    }
+  
+    .text-decoration-none {
+      color: #306d51 !important;
+    }
+  }
+  
+  .login-box{
+    padding: 0px 20px 0px 20px;
+  }

@@ -33,9 +33,13 @@
 
 /* Footer.css */
 .footer {
+
     bottom: 0;
+    position: sticky;
+    bottom: 0px;
+    z-index: -3;
   width: 100%;
-  z-index: 0;
+  /* z-index: 10; */
   padding: 20px 0;
 }
 
@@ -59,9 +63,5 @@
 
 
 /* Adjust the container to make space for the footer */
-
-
-
-
 
 

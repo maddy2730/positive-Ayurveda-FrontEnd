@@ -3,9 +3,9 @@ import imgfooter from "../Images/NavbarLogo.png"
 import './Footer.css'; // Import custom styles
 export default function Footer() {
   return (
-    <div>
+    <>
        <footer className="footer mt-auto py-3 text-light">
-      <div className="container mt-4" >
+      <div className="container mt-4">
         <div className="row">
           <div className="col-md-4">
             <img src={imgfooter} alt="Logo" className="mb-2" />
@@ -39,7 +39,7 @@ export default function Footer() {
               A108 Adam street<br />
               New York, NY 535022<br />
               United States<br />
-              <abbr title="Phone">Phone:</abbr> +1 4909 09093 23<br />
+              <abbr title="Phone">Phone:</abbr> +14909 09093 23<br />
               <a href="mailto:Info@example.com" className="text-light">Info@example.com</a>
             </address>
           </div>
@@ -50,6 +50,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-    </div>
+    </>
   )
 }

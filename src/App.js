@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './Container/navbar/Navbar';
 import Landingpage from './Components/Landingpage';
 import Aboutus from './Components/Aboutus';
@@ -10,6 +10,30 @@ import Blog from './Components/Blog';
 import LoginSignup from './Components/LoginSignup';
 import Contact from './Components/Contact';
 import Cart from './Components/Cart';
+import SignUp from './Components/SignUp';
+
+const AppRoutes = ({ cart, addToCart, removeFromCart, removeFromCartsubtract }) => {
+  const location = useLocation();
+  const hideNavbar = ['/signup', '/loginsignup'].includes(location.pathname);
+
+  return (
+    <>
+      {!hideNavbar && <Navbar cart={cart} />}
+      <Routes>
+        <Route path='/' element={<Landingpage />} />
+        <Route path='/signup' element={<SignUp />} />
+        <Route path='/aboutus' element={<Aboutus />} />
+        <Route path='/shop' element={<Shop addToCart={addToCart} />} />
+        <Route path='/services' element={<Services />} />
+        {/* <Route path='/pages' element={<Pages />} /> */}
+        <Route path='/blog' element={<Blog />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/cart' element={<Cart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} removeFromCartsubtract={removeFromCartsubtract} />} />
+        <Route path='/loginsignup' element={<LoginSignup />} />
+      </Routes>
+    </>
+  );
+};
 
 export default function App() {
   const [cart, setCart] = useState([]);
@@ -49,18 +73,12 @@ export default function App() {
   return (
     <div>
       <BrowserRouter>
-        <Navbar cart={cart} />
-        <Routes>
-          <Route path='/' element={<Landingpage />} />
-          <Route path='/aboutus' element={<Aboutus />} />
-          <Route path='/shop' element={<Shop addToCart={addToCart} />} />
-          <Route path='/services' element={<Services />} />
-          {/* <Route path='/pages' element={<Pages />} /> */}
-          <Route path='/blog' element={<Blog />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/cart' element={<Cart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} removeFromCartsubtract={removeFromCartsubtract} />} />
-          <Route path='/loginsignup' element={<LoginSignup />} />
-        </Routes>
+        <AppRoutes 
+          cart={cart}
+          addToCart={addToCart}
+          removeFromCart={removeFromCart}
+          removeFromCartsubtract={removeFromCartsubtract}
+        />
       </BrowserRouter>
     </div>
   );

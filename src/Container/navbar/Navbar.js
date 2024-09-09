@@ -10,7 +10,7 @@ export default function Navbar({ cart }) {
     <div >
       <nav className="navbar navbar-expand-lg back-groundd ">
         <div className="container d-flex justify-content-between div1">
-          <img src={Logo} className="logoImg ps-5 " alt="Logo" />
+          <img src={Logo} className="logoImg  " alt="Logo" />
           <div  className='d-flex navbaricon '>
           <li className="nav-item mauto1">
                 <Link className=" " to="/cart">
