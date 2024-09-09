@@ -443,7 +443,7 @@ export default function Landingpage() {
                       <div className="col-lg-4 col-md-12 col-sm-12  ">
                         <img
                           src={slide.img}
-                          className="img-fluid rounded-start onetwo "
+                          className="img-fluid rounded-start onetwo"
                           alt="..."
                         />
                       </div>
