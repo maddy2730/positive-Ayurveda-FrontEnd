@@ -29,10 +29,10 @@ export default function Services() {
                             <div className='w-100 h-100'>
                                 <h3>Services</h3>
                             </div>
-                            <div className='d-flex edit'>
+                            {/* <div className='d-flex edit'>
                                 <Link className="nav-link active" to="/">Home</Link>
                                 <Link className="nav-link active" to="/services">Services</Link>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
@@ -152,7 +152,8 @@ export default function Services() {
                 </div>
             </div>
         </div>
-            <div className="container-fluid">
+        <section className= "Service_Special">
+        <div className="container-fluid">
                 <div className="m-5 p-5 rowws">
                     <div className="row justify-content-center">
                         <div className="text-center mt-5">
@@ -231,6 +232,8 @@ export default function Services() {
                     </div>
                 </div>
             </div>
+        </section>
+        
 
             <Footer />
         </div>

@@ -24,10 +24,10 @@ export default function Aboutus() {
               <div className='w-100 h-100'>
                 <h3>AboutUs</h3>
               </div>
-              <div className='d-flex edit'>
+              {/* <div className='d-flex edit'>
                 <Link className="nav-link active" to="/">Home</Link>
                 <Link className="nav-link active" to="/aboutus">AboutUs</Link>
-              </div>
+              </div> */}
             </div>
           </div>
 

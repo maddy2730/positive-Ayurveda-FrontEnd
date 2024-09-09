@@ -13,10 +13,10 @@ export default function Contact() {
          <div className='w-100 h-100'>
             <h3>Contact Us</h3>
           </div>
-          <div className='d-flex edit'>
+          {/* <div className='d-flex edit'>
             <Link className="nav-link active" to="/">Home</Link>
             <Link className="nav-link active" to="/contact">Contact Us</Link>
-          </div>
+          </div> */}
          </div>
           </div>
          

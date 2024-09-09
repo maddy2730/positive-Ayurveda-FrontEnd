@@ -79,3 +79,13 @@ display: none;
   .ipo{
     width: 30px !important;
   }
+  .nav-link {
+    color: #000; /* Default text color */
+    text-decoration: none; /* Remove underline from links */
+  }
+  
+  /* Active nav link styles */
+  .nav-link.active {
+    color: #28a745; /* Green color */
+    border-bottom: 2px solid #28a745; /* Green underline */
+  }

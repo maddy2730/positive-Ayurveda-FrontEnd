@@ -17,10 +17,10 @@ export default function Blog() {
          <div className='w-100 h-100'>
             <h3 className='e text-center'>Blog</h3>
           </div>
-          <div className='d-flex edit'>
+          {/* <div className='d-flex edit'>
             <Link className="nav-link active" to="/">Home</Link>
             <Link className="nav-link active" to="/blog">Blog</Link>
-          </div>
+          </div> */}
          </div>
           </div>
          

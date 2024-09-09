@@ -429,6 +429,17 @@ export default function Landingpage() {
             <p className="fs-2" style={{ color: "#1E520C" }}>
               <b>Customer Review</b>
             </p>
+            <div className="d-flex">
+            <div className="icon_arrow">
+            <span
+                className="controls"
+                onClick={() => prevSlide(-1)}
+                id="left-arrow"
+              >
+                <i className="fa fa-angle-left" aria-hidden="true"></i>
+              </span>
+            </div>
+           
             <div id="slider">
               {slides.map((slide, index) => (
                 <div
@@ -459,22 +470,20 @@ export default function Landingpage() {
                   </div>
                 </div>
               ))}
-
-              <span
-                className="controls"
-                onClick={() => prevSlide(-1)}
-                id="left-arrow"
-              >
-                <i className="fa fa-angle-left" aria-hidden="true"></i>
-              </span>
-              <span
+            </div>
+            <div className="icon_arrow">
+<span
                 className="controls"
                 id="right-arrow"
                 onClick={() => nextSlide(1)}
               >
                 <i className="fa fa-angle-right" aria-hidden="true"></i>
-              </span>
+              </span> 
             </div>
+      
+            </div>
+           
+              
             <div id="dots-con">
               {slides.map((_, index) => (
                 <span

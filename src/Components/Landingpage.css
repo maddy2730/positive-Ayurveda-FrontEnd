@@ -131,6 +131,19 @@ margin-bottom: 0px !important;
    justify-content: center;
     text-align: center;
 }
+.icon_arrow{
+    display: flex;
+    align-items: center;
+}
+.controls{
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: wheat;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
 .color {
     background-color: #306D51;
 padding: 64px 0px 64px 0px;

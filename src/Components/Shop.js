@@ -33,10 +33,10 @@ export default function Shop({ addToCart }) {
               <div className='w-100 h-100'>
                 <h3 className='rv text-center'>Shop</h3>
               </div>
-              <div className='d-flex edit'>
+              {/* <div className='d-flex edit'>
                 <Link className="nav-link active" to="/">Home</Link>
                 <Link className="nav-link active" to="/shop">Shop</Link>
-              </div>
+              </div> */}
             </div>
           </div>
 
