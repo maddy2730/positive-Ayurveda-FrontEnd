@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './Signup.css';
 import img1 from '../Container/Images/BG2.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function SignUp() {
   const [formData, setFormData] = useState({
@@ -12,14 +12,9 @@ function SignUp() {
     password: '',
   });
 
-  const [errors, setErrors] = useState({
-    name: '',
-    phone_number: '',
-    email: '',
-    password: '',
-  });
-
+  const [errors, setErrors] = useState({});
   const [formStatus, setFormStatus] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -61,13 +56,32 @@ function SignUp() {
     e.preventDefault();
     if (validateForm()) {
       try {
-        const response = await axios.post('YOUR_API_ENDPOINT_HERE', formData);
+        const payload = {
+          account: {
+            name: formData.name,
+            phone_number: formData.phone_number,
+            email: formData.email,
+            password: formData.password,
+          }
+        };
 
-        setFormStatus('Form submitted successfully!');
-        console.log('Form Data Submitted:', response.data);
+        const response = await axios.post('https://e7b4-2401-4900-1c5f-2af0-1653-4ed4-7958-f236.ngrok-free.app/accounts', payload, {
+          headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+          },
+        });
+
+        setFormStatus('Account created successfully! Redirecting to sign in...');
+        setTimeout(() => {
+          navigate('/loginsignup');
+        }, 2000);
       } catch (error) {
-        setFormStatus('Error submitting the form. Please try again.');
-        console.error('Error submitting form:', error);
+        if (error.response) {
+          setFormStatus(`Error: ${error.response.data.message || 'Failed to create the account'}`);
+        } else {
+          setFormStatus('Error creating the account. Please try again.');
+        }
       }
     }
   };
@@ -114,7 +128,7 @@ function SignUp() {
         <div className="col-md-6 ps-3 backcolor login-section d-flex flex-column justify-content-center">
           <div className="login-box ">
             <h2 className="mb-4 fs-1" style={{ color: '#306D51' }}>
-              <b>Sign In with Ayurveda</b>
+              <b>Sign Up</b>
             </h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
@@ -144,7 +158,7 @@ function SignUp() {
                 {errors.phone_number && <div className="text-danger">{errors.phone_number}</div>}
               </div>
               <div className="mb-3">
-                <label htmlFor="email" className="form-label" style={{ color: '#306D51' }}>Email address</label>
+                <label htmlFor="email" className="form-label" style={{ color: '#306D51' }}>Email</label>
                 <input
                   type="email"
                   className="form-control"
@@ -169,31 +183,13 @@ function SignUp() {
                 />
                 {errors.password && <div className="text-danger">{errors.password}</div>}
               </div>
-              {/* <div className="mb-3 form-check d-flex justify-content-between mt-3">
-                <div>
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="rememberMe"
-                  />
-                  <label className="form-check-label" htmlFor="rememberMe" style={{ color: '#306D51' }}>Remember me</label>
-                </div>
-                <div>
-                  <a href="#" className="text-decoration-none">Forgot password?</a>
-                </div>
-              </div> */}
-              <button
-                type="submit"
-                className="btn"
-                style={{ backgroundColor: '#306D51', color: 'white', width: '30%' }}
-              >
-                Sign In
-              </button>
+              <button type="submit" className="btn btn-primary w-100" style={{ backgroundColor: '#306D51', borderColor: '#306D51' }}>Sign Up</button>
+              {formStatus && <div className="mt-3 text-success">{formStatus}</div>}
             </form>
-            {formStatus && <div className="mt-3">{formStatus}</div>}
-            <div className="mt-3">
-              <span className="text-decoration-none" style={{ color: '#306D51' }}>Do have an account?</span>
-              <Link to="/loginsignup" className="text-decoration-none" style={{ color: '#306D51' }}> Log In</Link>
+            <div className="text-center mt-3">
+              <p className="text-white">
+                Already have an account? <Link to="" style={{ color: '#C9F9E2' }}>Sign In</Link>
+              </p>
             </div>
           </div>
         </div>

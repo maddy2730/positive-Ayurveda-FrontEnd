@@ -89,3 +89,15 @@ display: none;
     color: #28a745; /* Green color */
     border-bottom: 2px solid #28a745; /* Green underline */
   }
+  @media(max-width: 768px){
+    .back-groundd {
+      position: relative;}
+      .mainallaresame {
+        position: relative;
+        top: 0px;
+  }}
+
+
+
+
+

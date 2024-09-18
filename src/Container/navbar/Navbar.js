@@ -1,18 +1,28 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom'; // Changed from Link to NavLink
+import { NavLink, useNavigate } from 'react-router-dom'; // Changed from Link to NavLink
 import Logo from "../Images/NavbarLogo.png";
 import used from "../Images/Admin.png";
 import addto from "../Images/Add to Cart.png";
 import './Navbar.css';
 
 export default function Navbar({ cart }) {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Clear the token from localStorage
+    localStorage.removeItem('token');
+    
+    // Redirect to the login page
+    navigate('/loginsignup');
+  };
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg back-groundd">
         <div className="container d-flex justify-content-between div1">
-        <NavLink className="" to="/">
-        <img src={Logo} className="logoImg" alt="Logo" />
-        </NavLink>
+          <NavLink className="" to="/">
+            <img src={Logo} className="logoImg" alt="Logo" />
+          </NavLink>
           <div className='d-flex navbaricon'>
             <li className="nav-item mauto1">
               <NavLink className="nav-link" to="/cart">
@@ -21,13 +31,17 @@ export default function Navbar({ cart }) {
                     {cart.length}
                   </span>
                 )}
-                <img src={addto} style={{ width: "40px", height: "40px" }} />
+                <img src={addto} style={{ width: "40px", height: "40px" }} alt="Cart" />
               </NavLink>
             </li>
             <li className="nav-item mauto1">
-              <NavLink className="nav-link" to="/loginsignup">
-                <img src={used} style={{ width: "40px", height: "40px" }} />
-              </NavLink>
+              {/* Logout icon with the onClick handler */}
+              <img 
+                src={used} 
+                style={{ width: "40px", height: "40px", cursor: "pointer" }} 
+                alt="Logout" 
+                onClick={handleLogout}
+              />
             </li>
             <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
               <span className="navbar-toggler-icon"></span>
@@ -63,13 +77,16 @@ export default function Navbar({ cart }) {
                       {cart.length}
                     </span>
                   )}
-                  <img src={addto} style={{ width: "40px", height: "40px" }} />
+                  <img src={addto} style={{ width: "40px", height: "40px" }} alt="Cart" />
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/loginsignup">
-                  <img src={used} style={{ width: "40px", height: "40px" }} />
-                </NavLink>
+                <img 
+                  src={used} 
+                  style={{ width: "40px", height: "40px", cursor: "pointer" }} 
+                  alt="Logout" 
+                  onClick={handleLogout}
+                />
               </li>
             </div>
           </div>
@@ -97,9 +114,6 @@ export default function Navbar({ cart }) {
             </li>
             <li className="nav-item">
               <NavLink className="nav-link nav-links" aria-current="page" to="/blog"><b>Blog</b></NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link nav-links" aria-current="page" to="#"><b>Pages</b></NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link nav-links" aria-current="page" to="/contact"><b>Contact</b></NavLink>

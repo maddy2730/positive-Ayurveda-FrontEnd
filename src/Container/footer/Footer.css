@@ -69,7 +69,11 @@
   line-height: 32px;
 }
 
-
-
-
-
+@media(max-width: 768px){
+  .list-unstyled{
+    line-height: 25px;
+  }
+  .ctns{
+    margin-top: 0px !important;
+  }
+}

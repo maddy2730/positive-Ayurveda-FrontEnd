@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <>
        <footer className="footer mt-auto py-3 text-light">
-      <div className="container mt-4">
+      <div className="container ctns mt-4">
         <div className="row">
           <div className="col-md-4">
             <img src={imgfooter} alt="Logo" className="mb-2" />
@@ -34,7 +34,7 @@ export default function Footer() {
               <li><a href="#sencha-tea" className="text-light">Sencha Tea</a></li>
             </ul>
           </div>
-          <div className="col-md-2 mt-4">
+          <div className="col-md-2 ">
             <address>
               A108 Adam street<br />
               New York, NY 535022<br />
@@ -44,7 +44,7 @@ export default function Footer() {
             </address>
           </div>
         </div>
-        <div className="text-center mt-4 ">
+        <div className="text-center">
           
           <p className="mb-0">© Copyright Nova. All Rights Reserved</p>
           <p className="mb-0">Designed by <a href="https://example.com" className="text-light">vbstechsolutions.com</a></p>

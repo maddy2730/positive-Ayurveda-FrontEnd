@@ -151,7 +151,7 @@ export default function Landingpage() {
                       Co-Founder
                     </p>
                   </div>
-                  <div className="mt-5">
+                  <div className="Transform_health">
                     <hr />
                   </div>
                   <button
@@ -429,7 +429,7 @@ export default function Landingpage() {
             <p className="fs-2" style={{ color: "#1E520C" }}>
               <b>Customer Review</b>
             </p>
-            <div className="d-flex">
+            <div className="d-flex add_for_slider">
             <div className="icon_arrow">
             <span
                 className="controls"
