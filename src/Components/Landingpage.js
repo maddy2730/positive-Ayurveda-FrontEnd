@@ -125,12 +125,13 @@ export default function Landingpage() {
                   style={{ width: "100%" }}
                 />
               </div>
-              <div className="col-lg-6  ">
+              <div className="col-lg-6  d-flex">
+                <div className="about-section"> 
                 <div className=" ms -5 ">
                   <p className="text-secondary  ">About</p>
                   <h2 class="hedit"> Transform your health</h2>
                   <h2 class="hedit"> with Positive Ayurveda</h2>
-                  <p className="pedits  pt-5 ">
+                  <p className="pedits peditss">
                     “Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Ornare non{" "}
                   </p>{" "}
@@ -156,7 +157,7 @@ export default function Landingpage() {
                   </div>
                   <button
                     type="button"
-                    className="btn btn-secondary mt-5 rounded-pill"
+                    className="btn btn-secondary btns_learn-more rounded-pill"
                   >
                     Learn More
                     <i class="fa-solid fa-arrow-right fa-xl rotate-icon"></i>
@@ -164,6 +165,8 @@ export default function Landingpage() {
 
                   </button>
                 </div>
+                   </div>
+                
               </div>
             </div>
           </div>

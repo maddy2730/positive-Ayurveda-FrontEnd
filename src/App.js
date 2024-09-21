@@ -15,9 +15,14 @@ const AuthRoute = ({ isAuthenticated, element }) => {
   return isAuthenticated ? element : <Navigate to='/loginsignup' />;
 };
 
-const AppRoutes = ({ cart, addToCart, removeFromCart, removeFromCartsubtract, isAuthenticated }) => {
+const AppRoutes = ({ cart, addToCart, removeFromCart, removeFromCartsubtract, isAuthenticated, loading }) => {
   const location = useLocation();
   const hideNavbar = ['/signup', '/loginsignup'].includes(location.pathname);
+
+  // Prevent rendering routes while authentication status is being checked
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <>
@@ -25,11 +30,11 @@ const AppRoutes = ({ cart, addToCart, removeFromCart, removeFromCartsubtract, is
       <Routes>
         <Route path='/' element={<AuthRoute isAuthenticated={isAuthenticated} element={<Landingpage />} />} />
         <Route path='/signup' element={<SignUp />} />
-        <Route path='/aboutus' element={<AuthRoute isAuthenticated={isAuthenticated} element={<Aboutus />  } />} />
-        <Route path='/shop' element={<Shop addToCart={addToCart} />} />
-        <Route path='/services' element={<AuthRoute isAuthenticated={isAuthenticated} element={<Services /> } />} />
-        <Route path='/blog' element={<AuthRoute isAuthenticated={isAuthenticated} element={<Blog /> } />}  />
-        <Route path='/contact' element={<AuthRoute isAuthenticated={isAuthenticated} element={<Contact /> } />} />
+        <Route path='/aboutus' element={<AuthRoute isAuthenticated={isAuthenticated} element={<Aboutus />} />} />
+        <Route path='/shop' element={<AuthRoute isAuthenticated={isAuthenticated} element={<Shop addToCart={addToCart} />} />} />
+        <Route path='/services' element={<AuthRoute isAuthenticated={isAuthenticated} element={<Services />} />} />
+        <Route path='/blog' element={<AuthRoute isAuthenticated={isAuthenticated} element={<Blog />} />} />
+        <Route path='/contact' element={<AuthRoute isAuthenticated={isAuthenticated} element={<Contact />} />} />
         <Route path='/cart' element={<Cart cart={cart} addToCart={addToCart} removeFromCart={removeFromCart} removeFromCartsubtract={removeFromCartsubtract} />} />
         <Route path='/loginsignup' element={<LoginSignup />} />
       </Routes>
@@ -39,11 +44,19 @@ const AppRoutes = ({ cart, addToCart, removeFromCart, removeFromCartsubtract, is
 
 export default function App() {
   const [cart, setCart] = useState([]);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(null); // Start with null to indicate loading state
+  const [loading, setLoading] = useState(true); // New loading state
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    setIsAuthenticated(!!token);
+    
+    if (token) {
+      setIsAuthenticated(true);
+    } else {
+      setIsAuthenticated(false);
+    }
+    
+    setLoading(false); // Set loading to false once authentication check is complete
   }, []);
 
   const addToCart = (product) => {
@@ -85,6 +98,7 @@ export default function App() {
           removeFromCart={removeFromCart}
           removeFromCartsubtract={removeFromCartsubtract}
           isAuthenticated={isAuthenticated}
+          loading={loading} // Pass loading state
         />
       </BrowserRouter>
     </div>

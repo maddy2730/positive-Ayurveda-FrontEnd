@@ -1,4 +1,5 @@
-import React from 'react'
+import React , {useEffect, useState
+} from 'react'
 import Footer from '../Container/footer/Footer'
 import { Link } from 'react-router-dom'
 import Topimg from '../Container/Images/Rectangletop.png'
@@ -8,6 +9,24 @@ import card2 from '../Container/Images/Rectangle02.png'
 import img1 from '../Container/Images/shopimg1.png';
 
 export default function Blog() {
+  const [blogs, setblogs] = useState([])
+  
+  useEffect(() => {
+    fetch('https://217c-2401-4900-1c5e-6d92-76d0-e912-6e3e-d73.ngrok-free.app/blogs', {
+      headers: {
+        'ngrok-skip-browser-warning': 'true'
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data, 'data');
+        setblogs(data.data);
+      })
+      .catch(error => {
+        console.error('Error fetching blog data:', error);
+      });
+  }, []);
+  
   return (
     <div>
             <div className='card bg-dark text-white modify'>
@@ -32,23 +51,31 @@ export default function Blog() {
         <div className='container'>
           <div className='row'>
             <div className='col-lg-8'>
-              <div className='row'>
-              <div className='col-lg-6 col-lg  col-md-6 col-sm-12 mt-3'>
-              <img src={card1}/>
-              <div className='p-4 Ayurveda_med'>
-              <p className='head mt-0'>Ayurveda Medicine</p>
-              <p className='head1'><b>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</b> </p>
-              <p className='date mt-2'>20 June, 2024</p>
-              <hr />
-              <p>
-                <i class="fa-regular fa-heart me-2"></i>900
-                <i class="fa-solid fa-eye ms-2 me-2"></i> 830
-                <i class="fa-solid fa-share-nodes me-2 ms-2"></i>share
-              </p>
-            </div>
-              
-            </div>
-            <div className='col-lg-6 col-lg col-md-6 col-sm-12 card-2 mt-3 '>
+              <div className='row'> 
+      <>
+      {blogs.map(blog => (
+         <div className='col-lg-6 col-lg  col-md-6 col-sm-12 mt-3'>
+       <img
+         src={blog.attributes.image.url}
+        //  style={{ maxWidth: '300px' }}
+       />
+               <div className='p-4 Ayurveda_med'>
+         <p className='head mt-0'>{blog.attributes.title}</p>
+         <p className='head1'><b>{blog.attributes.body}</b> </p>
+         <p className='date mt-2'>{blog.attributes.created_at}</p>
+         <hr />
+         <p>
+           <i class="fa-regular fa-heart me-2"></i>900
+           <i class="fa-solid fa-eye ms-2 me-2"></i> 830
+           <i class="fa-solid fa-share-nodes me-2 ms-2"></i>share
+         </p>
+       </div>
+         
+       </div>
+      ))}
+      </>
+         
+            {/* <div className='col-lg-6 col-lg col-md-6 col-sm-12 card-2 mt-3 '>
               <img src={card2}/>
               <div className='Ayurveda_med p-4'>
               <p className='head mt-0'>Ayurveda Medicine</p>
@@ -92,7 +119,7 @@ export default function Blog() {
               </p>
             </div>
               
-            </div>
+            </div> */}
            
                 
 

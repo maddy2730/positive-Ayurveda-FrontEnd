@@ -29,25 +29,18 @@ function LoginSignup() {
         password: formData.password,
       },
     };
-
+  
     try {
-      const response = await axios.post(
-        'https://e7b4-2401-4900-1c5f-2af0-1653-4ed4-7958-f236.ngrok-free.app/accounts/sign_in',
-        payload,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }
-      );
-
-      console.log('Response:', response); // Log the response for debugging
-
-      // Extract the token from the Authorization header
-      const token = response.headers.authorization?.split(' ')[1]; // 'Bearer <token>'
-
+      const response = await axios.post('https://217c-2401-4900-1c5e-6d92-76d0-e912-6e3e-d73.ngrok-free.app/accounts/sign_in', payload, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      const token = response.headers.authorization?.split(' ')[1];
+  
       if (token) {
-        localStorage.setItem('token', token);
+        localStorage.setItem('token', token); // Store token in localStorage
         toast.success('Login successful!', {
           position: 'top-right',
           autoClose: 3000,
@@ -57,16 +50,13 @@ function LoginSignup() {
           draggable: true,
           progress: undefined,
         });
-
-        navigate('/');
+        navigate('/'); // Navigate to home or landing page
       } else {
         throw new Error('Authentication token not found in response');
       }
     } catch (error) {
       console.error('Error:', error);
-
       const errorMessage = error.response?.data?.message || error.message || 'Error logging in. Please try again.';
-
       toast.error(`Login failed: ${errorMessage}`, {
         position: 'top-right',
         autoClose: 3000,
@@ -78,6 +68,7 @@ function LoginSignup() {
       });
     }
   };
+  
 
   return (
     <div className="container d-flex align-items-center backcolor">

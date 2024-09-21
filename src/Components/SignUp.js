@@ -65,7 +65,7 @@ function SignUp() {
           }
         };
 
-        const response = await axios.post('https://e7b4-2401-4900-1c5f-2af0-1653-4ed4-7958-f236.ngrok-free.app/accounts', payload, {
+        const response = await axios.post('https://217c-2401-4900-1c5e-6d92-76d0-e912-6e3e-d73.ngrok-free.app/accounts', payload, {
           headers: {
             "Content-Type": "application/json",
             "Accept": "application/json",
@@ -187,8 +187,8 @@ function SignUp() {
               {formStatus && <div className="mt-3 text-success">{formStatus}</div>}
             </form>
             <div className="text-center mt-3">
-              <p className="text-white">
-                Already have an account? <Link to="" style={{ color: '#C9F9E2' }}>Sign In</Link>
+              <p className="text-dark">
+                Already have an account? <Link to="/loginsignup" style={{ color: 'black' }}>Sign In</Link>
               </p>
             </div>
           </div>
