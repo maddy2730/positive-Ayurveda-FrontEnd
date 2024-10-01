@@ -4,8 +4,9 @@ import './Footer.css'; // Import custom styles
 export default function Footer() {
   return (
     <>
-       <footer className="footer mt-auto py-3 text-light">
-      <div className="container ctns mt-4">
+       <footer className="footer mt-auto  text-light">
+        <div className='ctnss'>
+        <div className="container ctns mt-4">
         <div className="row">
           <div className="col-md-4">
             <img src={imgfooter} alt="Logo" className="mb-2" />
@@ -50,6 +51,8 @@ export default function Footer() {
           <p className="mb-0">Designed by <a href="https://example.com" className="text-light">vbstechsolutions.com</a></p>
         </div>
       </div>
+        </div>
+  
     </footer>
     </>
   )
