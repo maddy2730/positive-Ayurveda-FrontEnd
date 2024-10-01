@@ -8,7 +8,7 @@
     border: 0 px none !important;
     border-radius: 0px;
     position: relative;
-    top: 91px;
+    top:0px;
 }
 .message{
   font-weight: 700;
@@ -57,7 +57,7 @@ padding-bottom: 7px;
   .colo {
     width: 100%;
     position: relative;
-    top: 90px;
+    top: 0px;
   }
   .ctn{
     background-color:#306D51;

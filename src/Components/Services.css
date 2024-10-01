@@ -14,7 +14,7 @@
 .et {
     background-color: #C9F9E2;
     position: relative;
-    top: 90px;
+    top: 0px;
 
 }
 .Service_Special{
@@ -43,7 +43,9 @@
     color: #1E520C;
     ;
 }
-
+.cards-services{
+flex-direction: column;
+}
 .h4-maindiv p {
     font-size: 18px;
     font-weight: bold;

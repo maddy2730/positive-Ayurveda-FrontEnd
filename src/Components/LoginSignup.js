@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import baseURL from './baseUrl'
 
 function LoginSignup() {
   const [formData, setFormData] = useState({
@@ -31,7 +32,7 @@ function LoginSignup() {
     };
   
     try {
-      const response = await axios.post('https://217c-2401-4900-1c5e-6d92-76d0-e912-6e3e-d73.ngrok-free.app/accounts/sign_in', payload, {
+      const response = await axios.post(`${baseURL}/accounts/sign_in`, payload, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -116,7 +117,7 @@ function LoginSignup() {
             <p style={{ color: '#306D51' }}>
               Clarity gives you the blocks and components you need to create a truly professional website.
             </p>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>   
               <div className="mb-3">
                 <label htmlFor="email" className="form-label" style={{ color: '#306D51' }}>Email address</label>
                 <input

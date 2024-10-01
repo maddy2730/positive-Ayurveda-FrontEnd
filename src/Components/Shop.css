@@ -8,7 +8,7 @@
     border: 0 px none !important;
     border-radius: 0px;
     position: relative;
-    top: 91px;
+    top: 0px;
 }
 .message{
   font-weight: 700;
@@ -18,6 +18,9 @@
 }
 .headshop {
     text-align: center;
+}
+.category-map{
+    display: flex;
 }
 .et {
     background-color: #C9F9E2;
@@ -31,4 +34,17 @@
  transition: all 150ms ease-out;
  background-color: green;
 
+}
+.shopcard{
+    flex-direction: column;
+    border: 1px solid #1e520c ;
+    background-color: white;
+    color: #1e520c;
+    max-width: 100%;
+}
+
+@media(max-width: 768px){
+    .category-map{
+        display: block;
+    }
 }

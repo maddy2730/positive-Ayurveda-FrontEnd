@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Landingpage.css";
 import cardfirst from "../Container/Images/card1.png";
 import cardsecond from "../Container/Images/card2.png";
@@ -19,12 +19,73 @@ import john from "../Container/Images/Line 1.png";
 import img from "../Container/Images/Rectangle 9 (1).png";
 import img10 from "../Container/Images/Rectangle 9.png";
 import img11 from "../Container/Images/Rectangle 9 (2).png";
-
+import baseURL from "./baseUrl";
 import "./Services.css";
 import { useState } from "react";
+import axios from "axios";
+const handleCopyLink = () => {
+  const link = window.location.href;
+  navigator.clipboard.writeText(link);
+  alert("Link copied to clipboard!");
+};
+const handleShare = (platform) => {
+  const url = window.location.href;
+  let shareUrl = "";
 
+  switch (platform) {
+    case "whatsapp":
+      shareUrl = `https://wa.me/?text=${encodeURIComponent(url)}`;
+      break;
+    case "facebook":
+      shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`;
+      break;
+    case "instagram":
+      alert("Instagram does not support direct web sharing. Please share manually.");
+      return;
+    case "linkedin":
+      shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
+      break;
+    default:
+      return;
+  }
+  window.open(shareUrl, "_blank");
+};
 export default function Landingpage() {
+  const [likeCounts, setLikeCounts] = useState([]); // Change here
+   const [data, setData] = useState([]);
+   const [newblogdata, setnewblogData] = useState([]);
+   const [showSharePopup, setShowSharePopup] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
+  useEffect(()=>{
+    axios.get(`${baseURL}/homes`, {
+      headers: {
+        'ngrok-skip-browser-warning': 'true'
+      }
+     }).then(response => {
+      setData(response.data.data);
+      console.log(response.data.data.id);
+     }).catch(error =>{
+      error = 'response not be lie '
+      console.log( 'fetch error ', error)
+     })
+      axios.get(`${baseURL}/blogs/latest_blog`, {
+        headers: {
+          'ngrok-skip-browser-warning': 'true'
+        }}).then(response => {
+        setnewblogData(response.data.data);
+        setLikeCounts(Array(response.data.data.length).fill(0));
+        console.log(response.data.data)
+
+      }).catch(error =>{
+        error = 'error in new blog';
+        console.log(error)
+      })
+  },[])
+  const handleLike = (index) => {
+    const updatedLikes = [...likeCounts];
+    updatedLikes[index] = updatedLikes[index] === 0 ? 1 : 0; // Toggle between 0 and 1
+    setLikeCounts(updatedLikes);
+};
 
   const slides = [
     {
@@ -62,56 +123,71 @@ export default function Landingpage() {
       (prevSlide) => (prevSlide + direction + slides.length) % slides.length
     );
   };
+  const toggleSharePopup = () => {
+    setShowSharePopup(!showSharePopup);
+  };
   return (
     <div className="mainallaresame">
       <div className="main_landing">
-        <section>
-        <div class="container-fluid text-white back-ground">
-          <div class="container home-section">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="maindiv">
-                  <div class="childdiv">
-                    <div>
-                      <h2 class="h2edit mb-0">Positive Ayurveda</h2>
-                      <h2 class="h2edit"> Healthcare</h2>
-                    </div>
-                    <div class="p2">
-                      <p class="pedit ">
-                        Uncovers the profound and ancient as wisdom of Ayurvedic{" "}
-                      </p>{" "}
-                      <p class="pedit ">
-                        medicines, tapping into their unparalleled power to heal
-                        and{" "}
-                      </p>
-                      <p class="pedit ">
-                        rejuvenate. Embrace the transformative potential of
-                        organic{" "}
-                      </p>
-                      <p class="pedit ">
-                        {" "}
-                        health solutions, allowing as nature's remedies to guide
-                        you{" "}
-                      </p>
-                      <p class="pedit ">towards optimal well-being.</p>
-                    </div>
-                    <div>
-                      <Link
-                        class="btn text-white"
-                        id="green1"
-                        type="submit"
-                        to="/shop"
-                      >
-                        GET INVOLVED
-                      </Link>
+        
+       { 
+        data.map((hero,key)=>(
+          <section key={key}>
+
+          <div className="container-fluid text-white back-ground" style={{
+    background: `linear-gradient(rgba(9, 16, 5, 0.5), rgba(13, 16, 13, 1.3)), url("${hero.attributes.image.url}")`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+}}>
+            <div class="container home-section">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="maindiv">
+                    <div class="childdiv">
+                      <div>
+                        {/* <h2 class="h2edit mb-0">{hero.attributes.title}</h2> */}
+                        <h2 class="h2edit mb-0">Positive Ayurveda</h2>
+                         <h2 class="h2edit"> Healthcare</h2>
+                        {/* <h2 class="h2edit"> Healthcare</h2> */}
+                      </div>
+                      <div class="p2">
+                        <p class="pedit ">
+                          Uncovers the profound and ancient as wisdom of Ayurvedic{" "}
+                        </p>{" "}
+                        <p class="pedit ">
+                          medicines, tapping into their unparalleled power to heal
+                          and{" "}
+                        </p>
+                        <p class="pedit ">
+                          rejuvenate. Embrace the transformative potential of
+                          organic{" "}
+                        </p>
+                        <p class="pedit ">
+                          {" "}
+                          health solutions, allowing as nature's remedies to guide
+                          you{" "}
+                        </p>
+                        <p class="pedit ">towards optimal well-being.</p>
+                      </div>
+                      <div>
+                        <Link
+                          class="btn text-white"
+                          id="green1"
+                          type="submit"
+                          to="/shop"
+                        >
+                          GET INVOLVED
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-          </section>
+            </section>
+        ))
+     }
       
         <section className="tranform-your-health-section">
         <div className="container-fluid">
@@ -173,6 +249,7 @@ export default function Landingpage() {
         </div>
         </section>
      
+    
         <section>
         <div className="container-fluid main-fluiddiv light_color ">
           <div className="container pb-5">
@@ -183,249 +260,65 @@ export default function Landingpage() {
               <h4 className=" text-white">Blog</h4>
             </div>
             <div className="row rw">
-              <div className="col-lg-4 col-lg  col-md-6 col-sm-12 p-4">
+            {
+      newblogdata.map((newblogs , key)=>(
+              <div className="col-lg-4 col-lg  col-md-6 col-sm-12 p-4" key={key}>
                 <div style={{boxShadow: "8.0px 16.0px 16.0px hsl(0deg 0% 0% / 0.25)"}}>
-                  <img src={card1} />
+                  <img src={newblogs.attributes.image.url} />
                   <div className="p-4 Ayurveda_med">
-                    <p className="head mt-0">Ayurveda Medicine</p>
+                    <p className="head mt-0">{newblogs.attributes.title}</p>
                     <p className="head1">
                       <b>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                      </b>{" "}
+                       {newblogs.attributes.body}
+                      </b>
                     </p>
-                    <p className="date mt-2">20 June, 2024</p>
+                    <p className="date mt-2">{newblogs.attributes.created_at}</p>
                     <hr />
-                    <p>
-                      <i class="fa-regular fa-heart me-2"></i>900
-                      <i class="fa-solid fa-eye ms-2 me-2"></i> 830
-                      <i class="fa-solid fa-share-nodes me-2 ms-2"></i>share
+                    <p className="d-flex">
+                    <i className={`fa-regular fa-heart me-2 d-flex gap-1 align-items-center ${likeCounts[key] ? 'liked' : ''}`} onClick={() => handleLike(key)}>
+        <p className="m-0">{likeCounts[key]}</p>
+    </i>                      <i class="fa-solid fa-eye ms-2 me-2 d-flex gap-1 align-items-center"><p className="m-0">{newblogs.attributes.view}</p></i>
+                      <div className="">
+                          <button className="share-btn" onClick={toggleSharePopup}>
+                            <i className="fa-solid fa-share-nodes me-2 ms-2 d-flex gap-1 align-items-center"></i>                        
+                          </button>
+                          {showSharePopup && (
+                        <div className="share-popup">
+                        <div className="share-popup-content">
+                          <p>Share this page on:</p>
+                          <div className="social-icons">
+                            <button onClick={handleCopyLink} className="btn btn-outline-light mx-2">
+                              <i className="fa-solid fa-link"></i>
+                            </button>
+                            <button onClick={() => handleShare("whatsapp")} className="btn btn-outline-light mx-2">
+                              <i className="fa-brands fa-whatsapp"></i>
+                            </button>
+                            <button onClick={() => handleShare("facebook")} className="btn btn-outline-light mx-2">
+                              <i className="fa-brands fa-facebook"></i>
+                            </button>
+                            <button onClick={() => handleShare("instagram")} className="btn btn-outline-light mx-2">
+                              <i className="fa-brands fa-instagram"></i>
+                            </button>
+                            <button onClick={() => handleShare("linkedin")} className="btn btn-outline-light mx-2">
+                              <i className="fa-brands fa-linkedin"></i>
+                            </button>
+                          </div>
+                          <button className="btn btn-danger mt-3" onClick={toggleSharePopup}>Close</button>
+                        </div>
+                      </div>
+                          )}
+                        </div>
                     </p>
                   </div>
                 </div>
               </div>
-
-              <div className="col-lg-4 col-lg col-md-6 col-sm-12 card-2 p-4 ">
-              <div style={{boxShadow: "8.0px 16.0px 16.0px hsl(0deg 0% 0% / 0.25)"}}>
-                <img src={card2} />
-                <div className="Ayurveda_med p-4">
-                  <p className="head mt-0">Ayurveda Medicine</p>
-                  <p className="head1">
-                    {" "}
-                    <b>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    </b>
-                  </p>
-                  <p className="date mt-2">20 June, 2024</p>
-                  <hr />
-                  <p>
-                    <i class="fa-regular fa-heart me-2"></i>900
-                    <i class="fa-solid fa-eye ms-2 me-2"></i> 830
-                    <i class="fa-solid fa-share-nodes me-2 ms-2"></i>share
-                  </p>
-                </div>
-                </div>
-              </div>
-
-              <div className="col-lg-4 col-lg col-md-6 col-sm-12 card-3 p-4">
-              <div style={{boxShadow: "8.0px 16.0px 16.0px hsl(0deg 0% 0% / 0.25)"}}> 
-                <img src={card3} />
-                <div className="Ayurveda_med p-4">
-                  <p className="head mt-0">Ayurveda Medicine</p>
-                  <p className="head1">
-                    {" "}
-                    <b>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    </b>{" "}
-                  </p>
-                  <p className="date mt-2">20 June, 2024</p>
-                  <hr />
-                  <p>
-                    <i class="fa-regular fa-heart me-2"></i>900
-                    <i class="fa-solid fa-eye ms-2 me-2"></i> 830
-                    <i class="fa-solid fa-share-nodes me-2 ms-2"></i>share
-                  </p>
-                </div>
-                </div>
-              </div>
+               ))
+              }
+              
             </div>
           </div>
         </div>
         </section>
-      
-        {/* <div class="container-fluid" style={{ backgroundColor: "#306d51" }}>
-        <div class=" text-center p-5">
-          <div class="row text-center d-flex justify-content-center align-middle">
-            <div class="col-lg-4 col-md-6 fivvesix p-5">
-              <div class="card bg-white  herbal ">
-                <img src={cardfirst} class="card-img-top three1" alt="..." />
-                <div class="card-body bg-white  herbal ">
-                  <p class="card-title mt-1 fs-3">
-                    <b>Herbal Medicine</b>
-                  </p>
-                  <p style={{ color: "#070707B2" }}>Pure Ayurveda</p>
-
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, consectetur and to adipiscing
-                    elit,
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6 fivvesix p-5">
-              <div class="card bg-white  herbal ">
-                <img src={cardsecond} class="card-img-top three1" alt="..." />
-                <div class="card-body bg-white  herbal ">
-                  <p class="card-title mt-1 fs-3">
-                    <b>Fresh Product</b>
-                  </p>
-                  <p style={{ color: " #070707B2" }}>Pure Ayurveda</p>
-
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, consectetur and to adipiscing
-                    elit,
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6  fivvesix  p-5">
-              <div class="card bg-white  herbal ">
-                <img src={cardthird} class="card-img-top three1" alt="..." />
-                <div class="card-body bg-white  herbal ">
-                  <p class="card-title mt-1 fs-3">
-                    <b>Herbal Medicine</b>
-                  </p>
-
-                  <p style={{ color: " #070707B2" }}>Pure Ayurveda</p>
-
-                  <p class="card-text">
-                    Lorem ipsum dolor sit amet, consectetur and to adipiscing
-                    elit,
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
-        {/* <div className="container-fluid ili text-light py-5">
-        <div className="container mt-5 pb-5">
-          <div className="text-center pt-5">
-            <h2 className="h1col">
-              <b>Why Positive Ayurveda</b>
-            </h2>
-            <h5 className="hcol">Wellness For You</h5>
-          </div>
-          <div className="row mt-3 mb-3 justify-content-center">
-            <div className="col-lg-4 mt-5 text-end">
-              <div>
-                <div className="twoline lines1 mt-3">
-                  <b className="colr">100 % Organic </b>
-                  <img
-                    src={img5}
-                    className="line colr"
-                    alt=""
-                    style={{ width: "50%", color: "#C9F9E2" }}
-                  />
-                </div>
-                <div className="twoline lines1 mt-3">
-                  <b className="colr">Best Quality </b>
-                  <img
-                    src={img4}
-                    className="line colr"
-                    alt=""
-                    style={{ width: "50%" }}
-                  />
-                </div>
-                <div className="mt-3 mb-3 sametowu">
-                  <b className="colr">hygienic product </b>
-                  <img
-                    src={img1}
-                    className="line colr"
-                    alt=""
-                    style={{ width: "50%" }}
-                  />
-                </div>
-                <div className="twoline1 lines1 mt-3">
-                  <b className="colr">Quality tested </b>
-                  <img
-                    src={img2}
-                    className="line colr"
-                    alt=""
-                    style={{ width: "50%" }}
-                  />
-                </div>
-                <div className="twoline1 lines1 mt-3">
-                  <b className="colr">Health Care </b>
-                  <img
-                    src={img8}
-                    className="line colr"
-                    alt=""
-                    style={{ width: "50%" }}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 mt-5 d-flex justify-content-center align-items-center logocenterauto rounded-circle border border-dotted yu">
-              <img
-                className="screenshot"
-                src={Logo}
-                alt="Screenshot"
-                style={{ height: "192px" }}
-              />
-            </div>
-            <div className="col-lg-4 mt-5 text-start">
-              <div>
-                <div className="twoline11 lines1 mt-3">
-                  <img
-                    src={img8}
-                    className="line colr"
-                    alt=""
-                    style={{ width: "50%" }}
-                  />
-                  <b className="colr"> 100 % Organic </b>
-                </div>
-                <div className="twoline11 lines1 mt-3">
-                  <img
-                    src={img2}
-                    className="line colr"
-                    alt=""
-                    style={{ width: "50%" }}
-                  />
-                  <b className="colr">Best Quality </b>
-                </div>
-                <div className="mt-3 mb-3 sametowu">
-                  <img
-                    src={img1}
-                    className="line colr"
-                    alt=""
-                    style={{ width: "50%" }}
-                  />
-                  <b className="colr">hygienic product </b>
-                </div>
-                <div className="twoline12 lines1 mt-3">
-                  <img
-                    src={img4}
-                    className="line colr"
-                    alt=""
-                    style={{ width: "50%" }}
-                  />
-                  <b className="colr">Quality tested </b>
-                </div>
-                <div className="twoline12 lines1 mt-3">
-                  <img
-                    src={img5}
-                    className="line colr"
-                    alt=""
-                    style={{ width: "50%" }}
-                  />
-                  <b className="colr">Health Care </b>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
       <section>
       <div className="container-fluid light_color">
           <div className="container  text-center pb-2">
@@ -452,7 +345,7 @@ export default function Landingpage() {
                   }`}
                   style={{ display: index === currentSlide ? "block" : "none" }}
                 >
-                  <div className="card" style={{ border: "none" }}>
+                  <div className=" " style={{ border: "none" }}>
                     <div className="row g-0 bg-colors">
                       <div className="col-lg-4 col-md-12 col-sm-12  ">
                         <img

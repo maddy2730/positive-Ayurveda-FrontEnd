@@ -7,12 +7,12 @@ import './Blog.css'
 import card1 from '../Container/Images/Rectangle01.png'
 import card2 from '../Container/Images/Rectangle02.png'
 import img1 from '../Container/Images/shopimg1.png';
-
+import baseURL from './baseUrl'
 export default function Blog() {
   const [blogs, setblogs] = useState([])
   
   useEffect(() => {
-    fetch('https://217c-2401-4900-1c5e-6d92-76d0-e912-6e3e-d73.ngrok-free.app/blogs', {
+    fetch(`${baseURL}/blogs`, {
       headers: {
         'ngrok-skip-browser-warning': 'true'
       }

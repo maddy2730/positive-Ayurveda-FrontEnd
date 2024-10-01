@@ -39,8 +39,10 @@ export default function Aboutus() {
         <div className='container contr'>
           <div className='row'>
 
-            <div className='col-lg-6 col-md-12 col-sm-12 imgs'>
-              <img src={firstimage} className='w-100 ' />
+            <div className='col-lg-6 col-md-12 col-sm-12 '>
+              <div className='imgs'>
+              <img src={firstimage} className='About-img' />
+              </div>
             </div>
             <div className='col-lg-6 col-md-12 col-sm-12'>
               <img src={secondimage} className='img ms ps-3 pe-2' />

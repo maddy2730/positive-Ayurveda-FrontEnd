@@ -161,7 +161,7 @@ export default function Services() {
                             <h5 className="pb-3 pt-3">Special Plans</h5>
                         </div>
                         <div className="col-lg-4 col-md-6 mt-5 mb-5">
-                            <div className="card move" style={{ backgroundColor: 'transparent' }}>
+                            <div className="card cards-services move" style={{ backgroundColor: 'transparent' }}>
                                 <div className="text-white" style={{ height: '160px' }}>
                                     <img src={cart5} className="card-img" alt="..." style={{ height: 'inherit' }}/>
                                     <div className="card-img-overlay text-center">
@@ -184,7 +184,7 @@ export default function Services() {
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6 mt-3">
-                            <div className="card move" style={{ backgroundColor: 'transparent', height: '574px' }}>
+                            <div className="card  cards-services move" style={{ backgroundColor: 'transparent', height: '574px' }}>
                                 <div className="text-white" style={{ height: '160px' }}>
                                     <img src={cart5} className="card-img" alt="..." style={{ height: 'inherit' }}/>
                                     <div className="card-img-overlay text-center">
@@ -207,7 +207,7 @@ export default function Services() {
                             </div>
                         </div>
                         <div className="col-lg-4 col-md-6 mt-5 mb-5">
-                            <div className="card move" style={{ backgroundColor: 'transparent' }}>
+                            <div className="card cards-services move" style={{ backgroundColor: 'transparent' }}>
                                 <div className="text-white" style={{ height: '160px' }}>
                                     <img src={cart5} className="card-img" alt="..." style={{ height: 'inherit' }}/>
                                     <div className="card-img-overlay text-center">

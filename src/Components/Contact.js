@@ -5,7 +5,7 @@ import Footer from '../Container/footer/Footer';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import baseURL from './baseUrl'
 export default function Contact() {
   const [formdata, setformdata] = useState({
     name: '',
@@ -32,7 +32,7 @@ export default function Contact() {
     };
 
     try {
-      const response = await axios.post('https://e7b4-2401-4900-1c5f-2af0-1653-4ed4-7958-f236.ngrok-free.app/contacts', payload, {
+      const response = await axios.post(`${baseURL}/contacts`, payload, {
         headers: {
           'Content-Type': 'application/json'
         }
