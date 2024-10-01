@@ -1,9 +1,4 @@
-.footer {
-    background-color: #306D51; /* Dark green color */
-    padding: 20px 0;
-    color: #C9F9E2 !important;
-    ;
-  }
+
   .footer a {
     color: #C9F9E2 !important;
    text-decoration: none;
@@ -40,9 +35,12 @@
     z-index: -3;
   width: 100%;
   /* z-index: 10; */
-  padding: 20px 0;
+  /* padding: 20px 0; */
   color: #C9F9E2 !important;
-  ;
+/* Dark green color */
+}
+.ctns{
+  background-color: #306D51; 
 }
 .footer a {
   color: #C9F9E2 !important;
@@ -76,4 +74,19 @@
   .ctns{
     margin-top: 0px !important;
   }
+  .ctnss{
+    padding-top: 16px;
+  }
+  .ctnss{
+    height: 100vh;
+    background-color: white !important;
+  }
+  .ctns{
+    max-width: 100% !important;
+  }
+
+}
+.ctnss{
+  padding-top: 16px;
+  background-color: #306D51;
 }

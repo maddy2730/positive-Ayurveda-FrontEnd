@@ -3,6 +3,7 @@ import axios from 'axios';
 import './Signup.css';
 import img1 from '../Container/Images/BG2.png';
 import { Link, useNavigate } from 'react-router-dom';
+import baseURL from "./baseUrl";
 
 function SignUp() {
   const [formData, setFormData] = useState({
@@ -65,16 +66,20 @@ function SignUp() {
           }
         };
 
-        const response = await axios.post('https://217c-2401-4900-1c5e-6d92-76d0-e912-6e3e-d73.ngrok-free.app/accounts', payload, {
+        const response = await axios.post(`${baseURL}/accounts`, payload, {
           headers: {
             "Content-Type": "application/json",
             "Accept": "application/json",
           },
         });
 
+        // Assuming the token is returned in the response
+        const token = response.data.token; // Change this if the token is in a different location
+        localStorage.setItem('authToken', token); // Store the token in localStorage
+
         setFormStatus('Account created successfully! Redirecting to sign in...');
         setTimeout(() => {
-          navigate('/loginsignup');
+          navigate('/loginsignup'); // Redirect to the sign-in page
         }, 2000);
       } catch (error) {
         if (error.response) {
