@@ -78,8 +78,8 @@
     padding-top: 16px;
   }
   .ctnss{
-    height: 100vh;
-    background-color: #306D51 !important; 
+    /* height: 100vh; */
+    /* background-color: #306D51 !important;  */
   }
   .ctns{
     max-width: 100% !important;
