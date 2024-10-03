@@ -143,8 +143,7 @@ margin-top: 8px;
       line-height: 18px;
     }
     .pedit {
-        font-size: clamp(10px, 3.7vw, 13px);
-              font-weight: 500;
+      font-size: xx-small;              font-weight: 500;
       line-height: 18px;
       margin-bottom: 0px !important;
     }
@@ -168,6 +167,10 @@ margin-top: 8px;
     .pedits{
       line-height: 3px !important;
     }
+    .contr {
+      padding: 0px !important
+      ;
+  }
   }
   .btn-secondary{
     width: auto !important;
@@ -177,7 +180,7 @@ margin-top: 8px;
     box-shadow: none ;
 }
   .pedits {
-    font-size: clamp(10px, 2vw, 13.5px);
+    font-size: clamp(8px, 2vw, 13.5px);
     font-weight: 400;
     line-height: 9px;
     /* white-space: nowrap; */
