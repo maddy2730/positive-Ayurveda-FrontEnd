@@ -39,9 +39,9 @@
   color: #C9F9E2 !important;
 /* Dark green color */
 }
-.ctns{
+/* .ctns{
   background-color: #306D51; 
-}
+} */
 .footer a {
   color: #C9F9E2 !important;
  text-decoration: none;
@@ -79,7 +79,7 @@
   }
   .ctnss{
     height: 100vh;
-    background-color: white !important;
+    background-color: #306D51 !important; 
   }
   .ctns{
     max-width: 100% !important;
