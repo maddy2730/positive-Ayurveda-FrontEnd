@@ -35,7 +35,7 @@ export default function Aboutus() {
 
 
       </div>
-      <div className='container-fluid err'>
+      <div className='container-fluid err cf'>
         <div className='container contr'>
           <div className='row'>
 
@@ -76,23 +76,23 @@ export default function Aboutus() {
         
           </div>
           <div className='row text-center onerows'>
-            <div className='col-lg-3 col-md-5 col-sm-12 rung p-4 col-lgs'>
+            <div className='col-lg-3 col-md-6 col-sm-12 rung p-4 col-lgs'>
               <img src={thirdimage}/>
               <h2>25</h2>
               <p>Years Experience</p>
               
             </div>
-            <div className='col-lg-3 col-md-5 col-sm-12 rung p-4 col-lgs'>
+            <div className='col-lg-3 col-md-6 col-sm-12 rung p-4 col-lgs'>
               <img src={forthimage}/>
               <h2>50 k+</h2>
               <p>Years Experience</p>
           </div>
-          <div className='col-lg-3 col-md-5 col-sm-12 rung p-4 col-lgs'>
+          <div className='col-lg-3 col-md-6 col-sm-12 rung p-4 col-lgs'>
               <img src={fifthimage}/>
               <h2>800 +</h2>
               <p>Products</p>
           </div>
-          <div className='col-lg-3 col-md-5 col-sm-12 rung p-4 col-lgs'>
+          <div className='col-lg-3 col-md-6 col-sm-12 rung p-4 col-lgs'>
               <img src={sixthimage}/>
               <h2>100 %</h2>
               <p>Product Purity</p>
@@ -110,25 +110,25 @@ export default function Aboutus() {
 
           </div>
           <div className='row text-center'>
-            <div className='col-lg-3 col-md-5 col-sm-12'>
+            <div className='col-lg-3 col-md-6 col-sm-12'>
               <img src={siventhimage} className='img w-100'/>
               <h4><b>Jane Cooper</b></h4>
               <p>Team Leader</p>
 
             </div>
-            <div className='col-lg-3 col-md-5 col-sm-12'>
+            <div className='col-lg-3 col-md-6 col-sm-12'>
               <img src={eigthimage} className='img w-100'/>
               <h4><b>Jenny Wilson</b></h4>
               <p>Farmer</p>
 
             </div>
-            <div className='col-lg-3 col-md-5 col-sm-12'>
+            <div className='col-lg-3 col-md-6 col-sm-12'>
               <img src={ninethimage} className='img w-100'/>
               <h4><b>Devon Lane</b></h4>
               <p>Manager</p>
 
             </div>
-            <div className='col-lg-3 col-md-5 col-sm-12'>
+            <div className='col-lg-3 col-md-6 col-sm-12'>
               <img src={tenthimage} className='img w-100'/>
               <h4><b>Albert Flores</b></h4>
               <p>CEO</p>

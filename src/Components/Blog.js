@@ -47,7 +47,7 @@ export default function Blog() {
 
 
       </div>
-      <div className='container-fluid et'>
+      <div className='container-fluid et cf'>
         <div className='container'>
           <div className='row'>
             <div className='col-lg-8'>

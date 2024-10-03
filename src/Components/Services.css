@@ -30,8 +30,8 @@
     margin: 0 10px;
 }
 
-.container-fluid {
-    padding: 50px 0;
+.cf{
+    padding-top: 50px !important;
 }
 
 .leftdiv .maindiv1 {

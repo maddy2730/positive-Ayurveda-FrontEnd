@@ -37,7 +37,7 @@ export default function Services() {
                     </div>
                 </div>
             </div>
-            <div className='container-fluid et'>
+            <div className='container-fluid cf et'>
                 <div className='container'>
                     <div className='row'>
                         <div className='col-lg-6 col-md-12 col-sm-12'>
@@ -96,7 +96,7 @@ export default function Services() {
 
 
 
-            <div className="container-fluid iy text-light py-5">
+            <div className="container-fluid cf iy text-light py-5">
             <div className="container mt-5 pb-5">
                 <div className="text-center pt-5">
                     <h3 className='ru'><b>Why Positive Ayurveda</b></h3>
@@ -153,7 +153,7 @@ export default function Services() {
             </div>
         </div>
         <section className= "Service_Special">
-        <div className="container-fluid">
+        <div className="container-fluid cf">
                 <div className="m-5 p-5 rowws">
                     <div className="row justify-content-center">
                         <div className="text-center mt-5">

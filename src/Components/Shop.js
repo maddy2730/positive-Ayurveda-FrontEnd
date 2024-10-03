@@ -72,7 +72,7 @@ export default function Shop({ addToCart }) {
       </div>
 
       {/* Shop Body */}
-      <div className="container-fluid et">
+      <div className="container-fluid et cf">
         <div className="m-5">
           <div className="row">
             <div className="col-lg-8">

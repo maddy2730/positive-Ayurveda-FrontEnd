@@ -33,6 +33,12 @@
     justify-content: center;
     align-items: center;
   }
+  .cf{
+    padding-top: 50px !important;
+  }
+  .cb{
+    padding-bottom: 50px;
+  }
   .social-icons button {
     width: 40px; /* Adjust size of the button */
     height: 40px; /* Adjust size of the button */
@@ -48,7 +54,7 @@
     background-color: rgba(255, 255, 255, 0.7); /* Lighter on hover */
   }
   .back-ground {
-    height: 100%;
+    height: 86vh;
     /* background: linear-gradient(rgba(9, 16, 5, 0.5), rgba(13, 16, 13, 1.3)),
       url("./../Container/Images/Rectangle 70 (1).jpg"); */
     background-size: cover;
