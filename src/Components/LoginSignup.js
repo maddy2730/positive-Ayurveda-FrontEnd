@@ -7,20 +7,19 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import baseURL from './baseUrl';
 
-function LoginSignup() {
+function LoginSignup({ setIsAuthenticated }) { 
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
   const navigate = useNavigate();
 
-  // Check token on page load and navigate to home if logged in
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      navigate('/'); // If token exists, go to the homepage
+      navigate('/'); 
     }
-  }, [navigate]); // Runs only when the component mounts
+  }, [navigate]);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -49,10 +48,10 @@ function LoginSignup() {
       const token = response.headers.authorization?.split(' ')[1];
 
       if (token) {
-        // Store token in localStorage
         localStorage.setItem('token', token);
 
-        // Toast notification for successful login
+        setIsAuthenticated(true);
+
         toast.success('Login successful!', {
           position: 'top-right',
           autoClose: 3000,
@@ -63,15 +62,13 @@ function LoginSignup() {
           progress: undefined,
         });
 
-        // Delay navigation slightly to ensure token is stored
         setTimeout(() => {
-          navigate('/'); 
-        }, 100)
+          navigate('/');
+        }, 100);
       } else {
         throw new Error('Authentication token not found in response');
       }
     } catch (error) {
-      console.error('Error:', error);
       const errorMessage = error.response?.data?.message || error.message || 'Error logging in. Please try again.';
       toast.error(`Login failed: ${errorMessage}`, {
         position: 'top-right',
