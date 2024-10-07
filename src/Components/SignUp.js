@@ -39,7 +39,7 @@ function SignUp() {
       isValid = false;
     }
 
-    if (!formData.email.includes('@')) { 
+    if (!formData.email.includes('@')) {
       newErrors.email = 'Email is invalid';
       isValid = false;
     }
@@ -73,9 +73,8 @@ function SignUp() {
           },
         });
 
-        // Assuming the token is returned in the response
-        const token = response.data.token; // Change this if the token is in a different location
-        localStorage.setItem('authToken', token); // Store the token in localStorage
+        // Clear token to avoid any conflict
+        localStorage.removeItem('token');
 
         setFormStatus('Account created successfully! Redirecting to sign in...');
         setTimeout(() => {
@@ -95,14 +94,13 @@ function SignUp() {
     <div className="container d-flex align-items-center backcolor">
       <div className="row" style={{ height: '100vh' }}>
         <div className="col-md-6 ps-3 backcolor login-section d-flex flex-column justify-content-center backpicgreen">
-          <div className='text-center pw'>
-            <div className='mb-5'>
+          <div className="text-center pw">
+            <div className="mb-5">
               <h2 style={{ color: '#C9F9E2' }}>
                 <b>Welcome to Positive Ayurveda</b>
               </h2>
               <p className="text-white">
-                Clarity gives you the blocks & components you need to create a truly
-                professional website.
+                Clarity gives you the blocks & components you need to create a truly professional website.
               </p>
             </div>
             <div className="mt-5">
@@ -117,8 +115,7 @@ function SignUp() {
               </div>
               <div>
                 <p className="text-white">
-                  "We love Landingfolio! Our designers were using it for their
-                  projects, so we already knew what kind of design they want."
+                  "We love Landingfolio! Our designers were using it for their projects, so we already knew what kind of design they want."
                 </p>
               </div>
               <div className="text-white mt-2">
@@ -131,9 +128,9 @@ function SignUp() {
           </div>
         </div>
         <div className="col-md-6 ps-3 backcolor login-section d-flex flex-column justify-content-center">
-          <div className="login-box ">
+          <div className="login-box">
             <h2 className="mb-4 fs-1" style={{ color: '#306D51' }}>
-              <b>Sign Up</b>
+              <b>Create your account</b>
             </h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-3">
@@ -142,7 +139,7 @@ function SignUp() {
                   type="text"
                   className="form-control"
                   id="name"
-                  placeholder="Name"
+                  placeholder="Enter your full name"
                   value={formData.name}
                   onChange={handleChange}
                   style={{ backgroundColor: 'transparent', border: '1px solid #306D51' }}
@@ -152,10 +149,10 @@ function SignUp() {
               <div className="mb-3">
                 <label htmlFor="phone_number" className="form-label" style={{ color: '#306D51' }}>Phone Number</label>
                 <input
-                  type="text"
+                  type="tel"
                   className="form-control"
                   id="phone_number"
-                  placeholder="Phone Number"
+                  placeholder="Enter your 10-digit phone number"
                   value={formData.phone_number}
                   onChange={handleChange}
                   style={{ backgroundColor: 'transparent', border: '1px solid #306D51' }}
@@ -163,12 +160,12 @@ function SignUp() {
                 {errors.phone_number && <div className="text-danger">{errors.phone_number}</div>}
               </div>
               <div className="mb-3">
-                <label htmlFor="email" className="form-label" style={{ color: '#306D51' }}>Email</label>
+                <label htmlFor="email" className="form-label" style={{ color: '#306D51' }}>Email address</label>
                 <input
                   type="email"
                   className="form-control"
                   id="email"
-                  placeholder="Email"
+                  placeholder="Enter your email"
                   value={formData.email}
                   onChange={handleChange}
                   style={{ backgroundColor: 'transparent', border: '1px solid #306D51' }}
@@ -181,20 +178,25 @@ function SignUp() {
                   type="password"
                   className="form-control"
                   id="password"
-                  placeholder="Password"
+                  placeholder="Enter your password"
                   value={formData.password}
                   onChange={handleChange}
                   style={{ backgroundColor: 'transparent', border: '1px solid #306D51' }}
                 />
                 {errors.password && <div className="text-danger">{errors.password}</div>}
               </div>
-              <button type="submit" className="btn btn-primary w-100" style={{ backgroundColor: '#306D51', borderColor: '#306D51' }}>Sign Up</button>
-              {formStatus && <div className="mt-3 text-success">{formStatus}</div>}
+              <button
+                type="submit"
+                className="btn"
+                style={{ backgroundColor: '#306D51', color: 'white', width: '30%' }}
+              >
+                Sign Up
+              </button>
+              {formStatus && <div className="text-success mt-3">{formStatus}</div>}
             </form>
-            <div className="text-center mt-3">
-              <p className="text-dark">
-                Already have an account? <Link to="/loginsignup" style={{ color: 'black' }}>Sign In</Link>
-              </p>
+            <div className="mt-3">
+              <span className="text-decoration-none" style={{ color: '#306D51' }}>Already have an account?</span>
+              <Link to="/loginsignup" className="text-decoration-none" style={{ color: '#306D51' }}> Log In</Link>
             </div>
           </div>
         </div>
