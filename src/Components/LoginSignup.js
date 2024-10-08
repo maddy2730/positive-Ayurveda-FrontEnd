@@ -12,6 +12,7 @@ function LoginSignup({ setIsAuthenticated }) {
     email: '',
     password: '',
   });
+  const[showPassword , setShowPassword] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -135,7 +136,7 @@ function LoginSignup({ setIsAuthenticated }) {
                   type="email"
                   className="form-control"
                   id="email"
-                  placeholder=""
+                  placeholder="email"
                   value={formData.email}
                   onChange={handleChange}
                   style={{ backgroundColor: 'transparent', border: '1px solid #306D51' }}
@@ -143,15 +144,23 @@ function LoginSignup({ setIsAuthenticated }) {
               </div>
               <div className="mb-3">
                 <label htmlFor="password" className="form-label" style={{ color: '#306D51' }}>Password</label>
+                <div className="input-group">
                 <input
-                  type="password"
+                  type={`${showPassword ? 'text' : 'password'}`}
                   className="form-control"
                   id="password"
-                  placeholder=""
+                  placeholder="password"
                   value={formData.password}
                   onChange={handleChange}
                   style={{ backgroundColor: 'transparent', border: '1px solid #306D51' }}
                 />
+                <button onClick={()=>setShowPassword(!showPassword)} 
+                  type="button"
+                  className="btn btn-outline-secondary"
+                  id="eyebtns">
+                <i className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'} f-color` }></i>
+                </button>
+                </div>
               </div>
               <button
                 type="submit"

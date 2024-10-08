@@ -12,9 +12,20 @@
   .stars {
     color: yellow;
   }
+  .f-color{
+    color: black;
+  }
   
-  
-  
+  #eyebtns{
+    border: none;
+    /* right: 9px; */
+    background-color: #C9F9E2;
+    height: 23px;
+    top: -5px;
+    position: absolute;
+    right: 17px;
+    width: min-content;
+ }
   @media (min-width: 1200px) {
     .fontparaone {
       width: 71%;
@@ -56,4 +67,7 @@
   
   .login-box{
     padding: 0px 20px 0px 20px;
+  }
+  .form-control {
+    border-radius: .375rem !important;  
   }

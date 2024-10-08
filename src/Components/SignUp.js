@@ -13,6 +13,7 @@ function SignUp() {
     password: '',
   });
 
+  const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState({});
   const [formStatus, setFormStatus] = useState('');
   const navigate = useNavigate();
@@ -73,8 +74,7 @@ function SignUp() {
           },
         });
 
-        // Clear token to avoid any conflict
-        localStorage.removeItem('token');
+        localStorage.removeItem('token'); // Clear token to avoid conflicts
 
         setFormStatus('Account created successfully! Redirecting to sign in...');
         setTimeout(() => {
@@ -174,15 +174,25 @@ function SignUp() {
               </div>
               <div className="mb-3">
                 <label htmlFor="password" className="form-label" style={{ color: '#306D51' }}>Password</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="password"
-                  placeholder="Enter your password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  style={{ backgroundColor: 'transparent', border: '1px solid #306D51' }}
-                />
+                <div className="input-group">
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    className="form-control"
+                    id="password"
+                    placeholder="Enter your password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    style={{ backgroundColor: 'transparent', border: '1px solid #306D51' }}
+                  />
+                  <button
+                    type="button"
+                    className="btn btn-outline-secondary"
+                    id="eyebtns"
+                    onClick={() => setShowPassword(!showPassword)} 
+                  >
+                    <i className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'} f-color`}></i>
+                  </button>
+                </div>
                 {errors.password && <div className="text-danger">{errors.password}</div>}
               </div>
               <button
