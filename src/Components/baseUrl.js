@@ -1,2 +1,2 @@
-const baseURL = 'https://dc4c-2401-4900-1c5f-8c5e-386e-b419-9db8-48f1.ngrok-free.app';
+const baseURL = 'https://postive-ayurveda-backend-dark-glitter-9173.fly.dev';
 export default baseURL;

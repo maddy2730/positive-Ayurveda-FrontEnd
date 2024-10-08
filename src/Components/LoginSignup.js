@@ -1,18 +1,25 @@
-import React, { useState } from 'react';
-import './Signup.css';
+import React, { useState, useEffect } from 'react';
+import './LoginSignup.css';
 import img1 from '../Container/Images/BG2.png';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import baseURL from './baseUrl'
+import baseURL from './baseUrl';
 
-function LoginSignup() {
+function LoginSignup({ setIsAuthenticated }) { 
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      navigate('/'); 
+    }
+  }, [navigate]);
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -30,18 +37,21 @@ function LoginSignup() {
         password: formData.password,
       },
     };
-  
+
     try {
       const response = await axios.post(`${baseURL}/accounts/sign_in`, payload, {
         headers: {
           'Content-Type': 'application/json',
         },
       });
-  
+
       const token = response.headers.authorization?.split(' ')[1];
-  
+
       if (token) {
-        localStorage.setItem('token', token); // Store token in localStorage
+        localStorage.setItem('token', token);
+
+        setIsAuthenticated(true);
+
         toast.success('Login successful!', {
           position: 'top-right',
           autoClose: 3000,
@@ -51,12 +61,14 @@ function LoginSignup() {
           draggable: true,
           progress: undefined,
         });
-        navigate('/'); // Navigate to home or landing page
+
+        setTimeout(() => {
+          navigate('/');
+        }, 100);
       } else {
         throw new Error('Authentication token not found in response');
       }
     } catch (error) {
-      console.error('Error:', error);
       const errorMessage = error.response?.data?.message || error.message || 'Error logging in. Please try again.';
       toast.error(`Login failed: ${errorMessage}`, {
         position: 'top-right',
@@ -69,7 +81,6 @@ function LoginSignup() {
       });
     }
   };
-  
 
   return (
     <div className="container d-flex align-items-center backcolor">
@@ -117,7 +128,7 @@ function LoginSignup() {
             <p style={{ color: '#306D51' }}>
               Clarity gives you the blocks and components you need to create a truly professional website.
             </p>
-            <form onSubmit={handleSubmit}>   
+            <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="email" className="form-label" style={{ color: '#306D51' }}>Email address</label>
                 <input
@@ -141,19 +152,6 @@ function LoginSignup() {
                   onChange={handleChange}
                   style={{ backgroundColor: 'transparent', border: '1px solid #306D51' }}
                 />
-              </div>
-              <div className="mb-3 form-check d-flex justify-content-between mt-3">
-                <div>
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="rememberMe"
-                  />
-                  <label className="form-check-label" htmlFor="rememberMe" style={{ color: '#306D51' }}>Remember me</label>
-                </div>
-                <div>
-                  <a href="#" className="text-decoration-none">Forgot password?</a>
-                </div>
               </div>
               <button
                 type="submit"
