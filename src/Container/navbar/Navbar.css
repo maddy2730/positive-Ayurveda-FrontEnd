@@ -8,6 +8,11 @@
   .gapes {
     gap: 25px;
   }
+  @media (min-width: 992px) {
+    .navbaricon1{
+      display: none;
+    }
+  }
   
   .nav-item a {
     color: #1E520C !important;

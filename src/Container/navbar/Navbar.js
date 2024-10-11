@@ -23,7 +23,7 @@ export default function Navbar({ cart }) {
           <NavLink className="" to="/">
             <img src={Logo} className="logoImg" alt="Logo" />
           </NavLink>
-          <div className='d-flex navbaricon'>
+          <div className='d-flex  navbaricon1'>
             <li className="nav-item mauto1">
               <NavLink className="nav-link" to="/cart">
                 {cart.length > 0 && (
