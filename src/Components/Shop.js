@@ -4,23 +4,30 @@ import './Shop.css';
 import './Blog.css';
 import { NotificationContainer, NotificationManager } from 'react-notifications';
 import 'react-notifications/lib/notifications.css';
-import baseURL from './baseUrl'
-// Images
+import baseURL from './baseUrl';
 import img1 from '../Container/Images/shopimg1.png';
+import axios from "axios";
 
 export default function Shop({ addToCart }) {
   const [active, setActive] = useState(false);
   const [categories, setCategories] = useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
   const [products, setProducts] = useState([]);
+  const [allproducts, setallProducts] = useState([]);
 
+  // Function to handle adding to cart
   const handleClick = (product) => {
-    NotificationManager.success('Cart added successfully', 'Success', 1000);
-    setActive(!active);
-    addToCart(product);
+    NotificationManager.success('Added to cart successfully', 'Success', 1000);
+    addToCart({ 
+      id: product.id, 
+      name: product.name, 
+      price: product.price, 
+      img: product.img, 
+      quantity: 1
+    });
   };
 
-  // Fetch Categories
+  // Fetching categories
   useEffect(() => {
     fetch(`${baseURL}/categories`, {
       headers: {
@@ -38,7 +45,7 @@ export default function Shop({ addToCart }) {
       .catch(error => console.error('Error fetching categories:', error));
   }, []);
 
-  // Fetch Products when a category is selected
+  // Fetching products based on selected category
   useEffect(() => {
     if (selectedCategoryId !== null) {
       fetch(`${baseURL}/items?category_id=${selectedCategoryId}`, {
@@ -60,6 +67,21 @@ export default function Shop({ addToCart }) {
     }
   }, [selectedCategoryId]);
 
+  // Fetching all products
+  useEffect(() => {
+    axios.get('https://postive-ayurveda-backend-dark-glitter-9173.fly.dev/items')
+      .then(response => {
+        const fetchedAllProducts = response.data.data.map(item => ({
+          id: item.attributes.id,
+          name: item.attributes.name,
+          price: item.attributes.price,
+          img: item.attributes.image.url,
+        }));
+        setallProducts(fetchedAllProducts);
+      })
+      .catch(error => console.error('Error fetching all products:', error));
+  }, []);
+
   return (
     <div>
       {/* Shop Header */}
@@ -73,83 +95,105 @@ export default function Shop({ addToCart }) {
 
       {/* Shop Body */}
       <div className="container-fluid et cf">
-        <div className=" ">
-          <div className="row">
-            <div className="col-lg-8">
-              <div className="row">
-                {products.length > 0 ? (
-                  products.map((product) => (
-                    <div key={product.id} className="col-lg-6 col-md-6 mt-3">
-                      <div className="shopcard pt-5" style={{ backgroundColor: 'transparent', borderRadius: '15px' }} id="cards">
-                        <img src={product.img} className="card-img-top three1" alt={product.name} />
-                        <div className="card-body bherbal" id="cards">
-                          <p className="card-title mt-1 text-center fs-2" style={{ color: '#306d51' }} id="cards">{product.name}</p>
-                          <div className="d-flex justify-content-center align-items-baseline fs-4">
-                            <p>{`$${product.price}`}</p>
-                          </div>
-                          <div className="d-flex justify-content-center" id="what">
-                            <button
-                              className="btn-lg text-success rounded-pill pww mb-2 pt-2 pb-2 pe-3 ps-3"
-                              type="button"
-                              style={{ backgroundColor: active ? "white" : "white", borderColor: '#306d51' }}
-                              id="when"
-                              onClick={() => handleClick(product)}
-                            >
-                              ADD TO CART
-                            </button>
-                            <NotificationContainer />
-                          </div>
+        <div className="row">
+          <div className="col-lg-8">
+            <div className="row">
+              {products.length > 0 ? (
+                products.map((product) => (
+                  <div key={product.id} className="col-lg-6 col-md-6 mt-3">
+                    <div className="shopcard" style={{ backgroundColor: 'transparent', borderRadius: '15px' }} id="cards">
+                      <img src={product.img} className="card-img-top three1" alt={product.name} />
+                      <div className="card-body bherbal" id="cards">
+                        <p className="card-title mt-1 text-center fs-2" style={{ color: '#306d51' }} id="cards">{product.name}</p>
+                        <div className="d-flex justify-content-center align-items-baseline fs-4">
+                          <p>{`$${product.price}`}</p>
+                        </div>
+                        <div className="d-flex justify-content-center" id="what">
+                          <button
+                            className="btn-lg text-success rounded-pill pww mb-2 pt-2 pb-2 pe-3 ps-3"
+                            type="button"
+                            style={{ backgroundColor: "white", borderColor: '#306d51' }}
+                            id="when"
+                            onClick={() => handleClick(product)}
+                          >
+                            ADD TO CART
+                          </button>
+                          <NotificationContainer />
                         </div>
                       </div>
                     </div>
-                  ))
-                ) : (
-                  <p>No products available for this category.</p>
-                )}
-              </div>
-            </div>
-
-            {/* Sidebar with Categories */}
-            <div className="col-lg-4 mt-2 text-success shadow p-3 rounded brd">
-              <div className="col-lg-12 mt-3 text-start" style={{ color: '#1E520C' }}>
-                <h2><b>Categories</b></h2>
-                {categories.length > 0 ? (
-                  categories.map(category => (
-                    <div
-                      key={category.id}
-                      style={{ display: 'flex', justifyContent: 'space-between', height: '40px', cursor: 'pointer' }}
-                      onClick={() => setSelectedCategoryId(category.id)} // Update selected category on click
-                    >
-                      <h6 className="fs-5 m-3" style={{ color: '#1E520C' }}>{category.name}</h6>
-                    </div>
-                  ))
-                ) : (
-                  <p>Loading categories...</p>
-                )}
-              </div>
-
-              {/* Other Sidebar Sections */}
-              {/* Top Products */}
-              <div className="mt-3" style={{ color: '#1E520C' }}>
-                <h2><b>Top Products</b></h2>
-                {[img1, img1, img1, img1].map((product, index) => (
-                  <div key={index} className="d-flex pt-2">
-                    <img src={product} alt="" style={{ width: 'auto', border: '1px solid #0FA958', borderRadius: '5px' }} />
-                    <div className="ps-3 pt-2">
-                      <h6>The Balance Hair Malt</h6>
-                      <h6>Ut enim ad minim veniam, quis nostrud exercitation</h6>
+                  </div>
+                ))
+              ) : (
+                allproducts.map((allproduct) => (
+                  <div key={allproduct.id} className="col-lg-6 col-md-6 mt-3">
+                    <div className="shopcard" style={{ backgroundColor: 'transparent', borderRadius: '15px' }} id="cards">
+                      <img src={allproduct.img} className="card-img-top three1" alt={allproduct.name} />
+                      <div className="card-body bherbal" id="cards">
+                        <p className="card-title mt-1 text-center fs-2" style={{ color: '#306d51' }} id="cards">{allproduct.name}</p>
+                        <div className="d-flex justify-content-center align-items-baseline fs-4">
+                          <p>{`$${allproduct.price}`}</p>
+                        </div>
+                        <div className="d-flex justify-content-center" id="what">
+                          <button
+                            className="btn-lg text-success rounded-pill pww mb-2 pt-2 pb-2 pe-3 ps-3"
+                            type="button"
+                            style={{ backgroundColor: "white", borderColor: '#306d51' }}
+                            id="when"
+                            onClick={() => handleClick(allproduct)}
+                          >
+                            ADD TO CART
+                          </button>
+                          <NotificationContainer />
+                        </div>
+                      </div>
                     </div>
                   </div>
-                ))}
-              </div>
+                ))
+              )}
+            </div>
+          </div>
 
-              {/* Tags */}
-              <div className="col-lg-12 mt-2 text-start" style={{ color: '#1E520C' }}>
-                <h3><b>Tags</b></h3>
-                {['Products', 'Herbal', 'Trending', 'Ayurveda'].map((tag, index) => (
-                  <p key={index} className="border border-success p-1 m-1">{tag}</p>
-                ))}
-              </div>
+          {/* Sidebar with Categories */}
+          <div className="col-lg-4 mt-2 text-success shadow p-3 rounded brd" style={{height: '-webkit-fill-available'}}>
+            <div className="col-lg-12 mt-3 text-start" style={{ color: '#1E520C' }}>
+              <h2><b>Categories</b></h2>
+              {categories.length > 0 ? (
+                categories.map(category => (
+                  <div
+                    key={category.id}
+                    style={{ display: 'flex', justifyContent: 'space-between', height: '40px', cursor: 'pointer' }}
+                    onClick={() => setSelectedCategoryId(category.id)}
+                  >
+                    <h6 className="fs-5 m-3" style={{ color: '#1E520C' }}>{category.name}</h6>
+                  </div>
+                ))
+              ) : (
+                <p>Loading categories...</p>
+              )}
+            </div>
+
+            {/* Other Sidebar Sections */}
+            {/* Top Products */}
+            <div className="mt-3" style={{ color: '#1E520C' }}>
+              <h2><b>Top Products</b></h2>
+              {[img1, img1, img1, img1].map((product, index) => (
+                <div key={index} className="d-flex pt-2">
+                  <img src={product} alt="" style={{ width: 'auto', border: '1px solid #0FA958', borderRadius: '5px' }} />
+                  <div className="ps-3 pt-2">
+                    <h6>The Balance Hair Malt</h6>
+                    <h6>Ut enim ad minim veniam, quis nostrud exercitation</h6>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Tags */}
+            <div className="col-lg-12 mt-2 text-start" style={{ color: '#1E520C' }}>
+              <h3><b>Tags</b></h3>
+              {['Products', 'Herbal', 'Trending', 'Ayurveda'].map((tag, index) => (
+                <p key={index} className="border border-success p-1 m-1">{tag}</p>
+              ))}
             </div>
           </div>
         </div>

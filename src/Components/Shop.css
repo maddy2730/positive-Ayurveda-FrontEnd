@@ -10,6 +10,15 @@
     position: relative;
     top: 0px;
 }
+@media(min-width: '769px'){
+    .modify{
+        position: relative;
+    top: 91px !important;
+    }
+    .cf{
+        margin-top: 50px;
+    }
+}
 .message{
   font-weight: 700;
 }
@@ -28,6 +37,7 @@
 }
 .three1 {
     height: 250px;
+    border-radius: 15px;
 }
 .pww:active{
     box-shadow: 8px 9px 6px 1px #00000096;
