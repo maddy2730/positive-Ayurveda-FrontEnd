@@ -57,11 +57,8 @@ export default function Landingpage() {
    const [showSharePopup, setShowSharePopup] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   useEffect(()=>{
-    axios.get(`${baseURL}/homes`, {
-      headers: {
-        'ngrok-skip-browser-warning': 'true'
-      }
-     }).then(response => {
+    axios.get(`${baseURL}/homes`
+     ).then(response => {
       setData(response.data.data);
       console.log(response.data.data.id);
      }).catch(error =>{
@@ -347,7 +344,7 @@ export default function Landingpage() {
                 >
                   <div className=" " style={{ border: "none" }}>
                     <div className="row g-0 bg-colors">
-                      <div className="col-lg-4 col-md-12 col-sm-12  ">
+                      <div className="col-lg-4 col-md-12 col-sm-12  costumer-crsl">
                         <img
                           src={slide.img}
                           className="img-fluid rounded-start onetwo"
@@ -356,10 +353,10 @@ export default function Landingpage() {
                       </div>
                       <div className="col-md-12 col-lg-8 col-sm-12 p-5 text-start towone">
                         <div className="card-body  " style={{}}>
-                          <h2 className="card-title">{slide.title}</h2>
-                          <i className="fa-solid fa-quote-left fs-1 mt-3"></i>
+                          <h2 className="card-title text-dark">{slide.title}</h2>
+                          <i className="fa-solid fa-quote-left fs-1 mt-3 text-dark"></i>
                           <h5 className="card-text  fonts">{slide.text}</h5>
-                          <i className="fa-solid fa-quote-right d-flex fs-1 justify-content-end"></i>
+                          <i className="fa-solid fa-quote-right d-flex fs-1 justify-content-end text-dark"></i>
                         </div>
                       </div>
                     </div>
