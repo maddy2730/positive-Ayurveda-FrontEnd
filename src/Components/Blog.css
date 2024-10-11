@@ -8,7 +8,15 @@
     border: 0 px none !important;
     border-radius: 0px;
     position: relative;
-    top: 91px;
+}
+@media(min-width: '769px'){
+    .modify{
+        position: relative;
+    top: 91px !important;
+    }
+    .cf{
+        margin-top: 50px;
+    }
 }
 .message{
   font-weight: 700;

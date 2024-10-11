@@ -27,7 +27,7 @@ export default function Navbar({ cart }) {
             <li className="nav-item mauto1">
               <NavLink className="nav-link" to="/cart">
                 {cart.length > 0 && (
-                  <span className="text-xs cart-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                  <span className="text-xs cart-count position-absolute  translate-middle badge rounded-pill bg-danger">
                     {cart.length}
                   </span>
                 )}
@@ -69,7 +69,7 @@ export default function Navbar({ cart }) {
               <li className="nav-item pe-2">
                 <NavLink className="nav-link" to="/cart">
                   {cart.length > 0 && (
-                    <span className="text-xs cart-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    <span className="text-xs cart-count position-absolute  translate-middle badge rounded-pill bg-danger">
                       {cart.length}
                     </span>
                   )}

@@ -7,9 +7,18 @@
     text-align: center;
     height: 100px;
 }
-.modify{
+/* .modify{
   position: relative;
     top: 91px;
+} */
+@media(min-width: '769px'){
+  .modify{
+      position: relative;
+  top: 91px !important;
+  }
+  .cf{
+      margin-top: 50px;
+  }
 }
 .et {
     background-color: #C9F9E2;

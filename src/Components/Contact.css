@@ -8,13 +8,21 @@
     border: 0 px none !important;
     border-radius: 0px;
     position: relative;
-    top:0px;
 }
 .message{
   font-weight: 700;
 }
 .edit {
     gap: 20px;
+}
+@media(min-width: '769px'){
+  .modify{
+      position: relative;
+  top: 91px !important;
+  }
+  .cf{
+      margin-top: 50px;
+  }
 }
 hr{
   border: 0.5px dotted;

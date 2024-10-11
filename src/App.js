@@ -17,7 +17,7 @@ const AuthRoute = ({ isAuthenticated, element }) => {
 
 const AppRoutes = ({ cart, addToCart, removeFromCart, removeFromCartsubtract, isAuthenticated, loading, setIsAuthenticated }) => {
   const location = useLocation();
-  const hideNavbar = ['/signup', '/loginsignup'].includes(location.pathname);
+  const hideNavbar = ['/signup', '/loginsignup','/cart'].includes(location.pathname);
 
   if (loading) {
     return <div>Loading...</div>;
